@@ -132,6 +132,22 @@ This section allows you to configure the behavior of the workspace module. You c
 ### Window Titles
 Window titles display the name of the currently focused window. This section lets you configure the spacing between the icon and the label/name of the currently focused window.
 
+#### Window Title Mappings
+Window title mappings allow you to assign a specific icon and a name to specified window in the window titles bar module. This mapping is an array of arrays where each array contains the following:
+- The **original window title** (can be a regular expression)
+- The **icon** to display
+- The **replacement window title** to display
+
+Example of window mappings - notice that the nerd font icon may not render correctly in the browser:
+```json
+[
+    ["kitty", "󰄛", "Kitty Terminal"],
+    ["firefox", "󰈹", "Firefox"],
+    ["microsoft-edge.*", "󰇩", "Edge"],
+    ["discord", "", "Discord"],
+    ["org.kde.dolphin", "", "Dolphin"],
+]
+```
 ### Volume
 This section allows you to configure the volume module. You can configure the inner spacing and toggle the volume label.
 
