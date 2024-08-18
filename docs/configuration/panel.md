@@ -134,7 +134,7 @@ Window titles display the name of the currently focused window. This section let
 
 #### Window Title Mappings
 Window title mappings allow you to assign a specific icon and a name to specified window in the window titles bar module. This mapping is an array of arrays where each array contains the following:
-- The **original window title** (can be a regular expression)
+- The **original window title** in all lowercase (can be a regular expression)
 - The **icon** to display
 - The **replacement window title** to display
 
@@ -148,6 +148,7 @@ Example of window mappings - notice that the nerd font icon may not render corre
     ["org.kde.dolphin", "", "Dolphin"],
 ]
 ```
+Note that you must provide the original window title in all ***lowercase***. If you have nothing mapped to a specific window title, the default window title will be displayed in the module.
 ### Volume
 This section allows you to configure the volume module. You can configure the inner spacing and toggle the volume label.
 
