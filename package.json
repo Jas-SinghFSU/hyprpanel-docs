@@ -5,7 +5,7 @@
     "scripts": {
         "docs:build": "vitepress build docs",
         "docs:preview": "vitepress preview docs",
-        "start": "npm run docs:preview -- --port 3000",
+        "start": "npm run docs:preview -- --port $PORT",
         "build": "npm run docs:build"
     }
 }
