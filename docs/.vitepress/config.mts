@@ -29,6 +29,7 @@ export default defineConfig({
                     { text: 'Panel Configuration', link: '/configuration/panel.md' },
                     { text: 'Themes', link: '/configuration/themes.md' },
                     { text: 'Creating Themes', link: '/configuration/theming.md' },
+                    { text: 'CLI', link: '/configuration/cli.md' },
                 ]
             },
         ],

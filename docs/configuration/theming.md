@@ -39,6 +39,26 @@ The bar section allows you to configure the panel's background, foreground, and 
 
 All the colors of each module in the bar can be configured from this section.
 
+### Button Styles
+There are 4 different button styles available for the buttons in the bar. You can choose from the following styles:
+
+#### Default
+![Default Button Style](../images/configuration/Theming/default_bar_style.png)
+The **default** style allows you to set a background color for the button. The icon and the label both share the same background color. You can however set a different text color for each.
+
+#### Split
+![Split Button Style](../images/configuration/Theming/split_bar_style.png)
+
+**Split** style allows you to split the button into two parts. The left part is the icon, and the right part is the text. In this style you can assign a background color to each individual button's icon section to achieve a style like the one shown above.
+
+#### Wave
+![Wave Button Style](../images/configuration/Theming/wave.png)
+The **wave** style is similar to the default style with the exception of the wave shape of the buttons. The configurations are the same as the default style.
+
+#### Wave 2
+![Wave 2 Button Style](../images/configuration/Theming/wave_2.png)
+The **wave 2** style is similar to the wave style, except with the shape in the reverse direction.
+
 ## Notifications
 The style of the notifications toast can be configured in this section. 
 
