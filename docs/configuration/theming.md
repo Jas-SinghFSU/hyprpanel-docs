@@ -1,7 +1,7 @@
 # Theming
 HyprPanel is built with theming in mind. It's extremely easy to change the look of your panel and context menus with just a few clicks. 
 
-Every element that you can see on the panel is themable. This includes the background, foreground, icons, text, and context menus, context menu items, and more. 
+Every element that you can see on the panel is themeable. This includes the background, foreground, icons, text, and context menus, context menu items, and more. 
 
 The theming settings can be found in the Theming section of the settings dialog.
 

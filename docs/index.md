@@ -15,7 +15,7 @@ hero:
 
 features:
   - title: Panel
-    details: A themable and stylable panel with a vast array of customization options and preset themes.
+    details: A themeable and stylable panel with a vast array of customization options and preset themes.
   - title: Context Menus
     details: Context menus to quickly access important system settings (Volume, Network, Bluetooth, etc.).
   - title: Configuration
