@@ -12,6 +12,9 @@ hero:
     - theme: alt
       text: View on Github
       link: https://github.com/Jas-SinghFSU/HyprPanel
+    - theme: alt
+      text: 󰙯 Discord
+      link: https://discord.gg/MNpg7Z2b3a
 
 features:
   - title: Panel

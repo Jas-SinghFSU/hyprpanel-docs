@@ -35,7 +35,8 @@ export default defineConfig({
         ],
 
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/Jas-SinghFSU/HyprPanel' }
+            { icon: 'github', link: 'https://github.com/Jas-SinghFSU/HyprPanel' },
+            { icon: 'discord', link: 'https://discord.gg/MNpg7Z2b3a' }
         ]
     }
 })

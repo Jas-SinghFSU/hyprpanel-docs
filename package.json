@@ -1,5 +1,6 @@
 {
     "dependencies": {
+        "@catppuccin/vitepress": "github:42willow/vitepress",
         "vitepress": "^1.3.3"
     },
     "scripts": {
