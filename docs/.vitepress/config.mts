@@ -4,7 +4,9 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
     title: "HyprPanel",
     description: "The ultimate configurable panel for Hyprland",
+    head: [['link', { rel: 'icon', href: 'public/favicon.ico' }]],
     themeConfig: {
+        logo: 'public/HyprPanel.jpeg',
         outline: "deep",
         search: {
             provider: 'local',
