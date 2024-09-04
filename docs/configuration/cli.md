@@ -18,8 +18,10 @@ bluetoothmenu
 notificationsmenu
 # Calendar Menu
 calendarmenu
-# battery menu
-energymenu 
+# Battery menu
+energymenu
+# Power Actions Menu
+powerdropdownmenu
 
 # The settings dialog
 settings-dialog

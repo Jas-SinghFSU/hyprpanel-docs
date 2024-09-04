@@ -36,12 +36,14 @@ export default defineConfig({
                 text: 'Configuration',
                 items: [
                     { text: 'Settings', link: '/configuration/settings.md' },
+                    { text: 'Bar Modules', link: '/configuration/modules.md' },
                     { text: 'Panel Configuration', link: '/configuration/panel.md' },
                     { text: 'Themes', link: '/configuration/themes.md' },
                     { text: 'Creating Themes', link: '/configuration/theming.md' },
-                    { text: 'CLI', link: '/configuration/cli.md' },
+                    { text: 'CLI Commands', link: '/configuration/cli.md' },
                 ]
             },
+
         ],
 
         socialLinks: [

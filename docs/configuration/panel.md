@@ -82,6 +82,14 @@ The numbers `0`, `1`, and `2` represent the monitor index. The `left`, `middle`,
 "bluetooth"
 "clock"
 "systray"
+"ram"
+"cpu"
+"storage"
+"netstat"
+"kbinput"
+"updates"
+"weather"
+"power"
 ```
 
 #### Hiding the Bar on specific monitors
