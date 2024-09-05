@@ -13,7 +13,7 @@ These modules can be configured in the **Custom Modules** section of the **Confi
 
 Modules can also be themed in the **Custom Modules** section of the **Theming** pane in the **settings dialog**.
 
-[![Modules](/images/configuration/configuration/modules.png)](/images/configuration/configuration/modules.png)
+[![Modules](/configuration/modules.png)](/configuration/modules.png)
 
 ### Standard  Modules
 
