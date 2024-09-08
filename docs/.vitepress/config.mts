@@ -38,11 +38,19 @@ export default defineConfig({
                     { text: 'Settings', link: '/configuration/settings.md' },
                     { text: 'Bar Modules', link: '/configuration/modules.md' },
                     { text: 'Panel Configuration', link: '/configuration/panel.md' },
+                    { text: 'Notifications', link: '/configuration/notifications.md' },
+                    { text: 'OSD', link: '/configuration/osd.md' },
                     { text: 'Themes', link: '/configuration/themes.md' },
                     { text: 'Creating Themes', link: '/configuration/theming.md' },
                     { text: 'CLI Commands', link: '/configuration/cli.md' },
                 ]
             },
+            {
+                text: 'Help',
+                items: [
+                    { text: 'FAQ', link: '/help/faq' },
+                ]
+            }
 
         ],
 

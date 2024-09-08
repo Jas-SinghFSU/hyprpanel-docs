@@ -166,6 +166,18 @@ The network module displays your network status. This section allows you to conf
 ### Bluetooth
 The bluetooth module displays your bluetooth status. This section allows you to configure the inner spacing and toggle the bluetooth label.
 
+### System Tray
+The system tray module displays icons for processes running in the background. In this section you can configure which icons to blacklist from displaying in the system tray.
+
+The **Ignore List** field allows you to specify which icons you do not want to display in the system tray. This field is an array of strings that should contain the names of the applications you want to ignore.
+
+Names for applications are **case-sensitive** and must match the name of the application. You can find the name of an application by middle clicking the system tray icon which will create a notification with the application name.
+
+For example, if you want to ignore the Spotify icon, you would enter the following into the `Ignore List` field:
+```bash
+["spotify-client"]
+```
+
 ### Clock
 You can define the format of the clock displayed in the clock module in this section. This format is the strftime() format language as specified by c99.
 
@@ -223,12 +235,15 @@ This section allows you to configure the notifications module. You can configure
 The **Notification Menu** tab allows you to configure the behavior of the notifications that are displayed by the HyprPanel. You can access the Notification Menu tab by clicking the category `Notifications` in the settings dialog.
 
 In the **Notification Menu** tab, you can configure:
+- Which applications to ignore
 - The position of the notifications toast
 - The timeout of the notifications toast
 - Which monitor to display the notifications on
 - Whether to follow the focused monitor
 - Whether or not to preserve actions inside the notifications between sessions
-  - Actions include buttons that are displayed in the notification that you can click on to perform an action
+- Actions include buttons that are displayed in the notification that you can click on to perform an action
+
+More information about **notification settings** can be found in the [Notifications](./notifications.md) page.
 
 ## OSD (On-Screen Display)
 The **OSD** tab allows you to configure the behavior of the on-screen display that is displayed by the HyprPanel. You can access the OSD tab by clicking the category `OSD` in the settings dialog.
@@ -241,6 +256,8 @@ The OSD is displayed when you change the volume, brightness, or when you mute yo
 - Whether to follow the focused monitor
 - The Radius of the OSD corners
 - The margin of the OSD from the edge of the screen
+
+More information about **OSD settings** can be found in the [OSD](./osd.md) page.
 
 ## Clock Menu
 The **Clock Menu** tab allows you to configure the behavior of the clock module that is displayed by the HyprPanel. You can access the Clock Menu tab by clicking the category `Clock Menu` in the settings dialog.
@@ -276,7 +293,7 @@ You can configure the following in the Power Menu section:
 If you have an NVidia GPU, you can enable the GPU usage bar in the dashboard.
 
 ### Shortcuts
-This section allows you to configure the shortcuts that are displayed in the dashboard. There are a total of 8 shortcuts our of which 6 are user-configurable. 
+This section allows you to configure the shortcuts that are displayed in the dashboard. There are a total of 8 shortcuts out of which 6 are user-configurable. 
 
 You can configure the following for each of these 6 shortcuts:
 - The icon
