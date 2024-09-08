@@ -5,7 +5,7 @@ HyprPanel comes with a built-in On-Screen Display (OSD) that can displays inform
 
 The OSD can be configured to show on the active monitor or on a specific monitor. You can also configure the position of the OSD on the screen along with the orientation - vertical or horizontal.
 
-Similary to the notifications, the OSD can be configured to show only on one specified monitor or you can have it follow the active monitor. Additionally, you can configure the position of the OSD in respect to the screen.
+Similarly to the notifications, the OSD can be configured to show only on one specified monitor or you can have it follow the active monitor. Additionally, you can configure the position of the OSD in respect to the screen.
 
 The OSD currently supports displaying the following information:
 1. Volume
