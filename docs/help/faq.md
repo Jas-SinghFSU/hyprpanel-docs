@@ -75,7 +75,7 @@ To disable certain applications from showing up in the system tray, refer to the
 Changes to the configuration are not automatically applied. You must press **enter** in the text box for the changes to take effect. Any unsaved changes are indicated by a yellow warning icon.
 
 ## My weather is not displaying any information or is showing the wrong information. What is going on?
-For the weather to work, you must provide a valid API key for the [Weather API](https://weatherapi.com/). You can get a free API key by signing up on their website.
+For the weather to work, you must provide a valid API key for the [Weather API](https://www.weatherapi.com/). You can get a free API key by signing up on their website.
 
 Once you have the API key, you can input it in the `Weather API Key` field in the settings dialog under `Configuration > Clock Menu`.
 
