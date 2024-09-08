@@ -96,7 +96,7 @@ If the bar is covering the content of elements such as menus for certain applica
 The built in GTK Calendar is quite awful in many regards and has extremely limited functionality. HyprPanel will soon have its own calendar that will be more reliable and have more features. Hang tight!
 
 ## Can I use keybinds to perform certain actions in the panel?
-Yes, you can use the commands found in the [CLI Page](../configuration//cli.md) to open specific menus in the panel.
+Yes, you can use the commands found in the [CLI Page](../configuration/cli.md) to open specific menus in the panel.
 
 ## I need help with something else. Where can I go?
 Feel free to hop into the HyprPanel [discord server](https://discord.gg/MNpg7Z2b3a) and ask for help in the `#help` channel.
