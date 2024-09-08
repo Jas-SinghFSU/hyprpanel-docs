@@ -42,7 +42,7 @@ If you want to resize specific elements of the panel, you can adjust the scale o
 ## I want to hide the top bar on specific monitors. How can I do that?
 To hide the top bar on specific monitors, refer to the following section in the [Configuration Guide](../configuration/panel.md#hiding-the-bar-on-specific-monitors).
 
-## I want to save me configuration, how can I do that?
+## I want to save my configuration, how can I do that?
 You can save you configuration by exporting it in the settings dialog under `Configuration > General` by clicking the **Export** button. You can then import the configuration by clicking the **Import** button.
 
 NOTE: Your configuration also contains your API keys. Make sure to keep it safe. This may change in the future.
@@ -53,12 +53,14 @@ You can save your theme by exporting it in the settings dialog under `Theming > 
 ## Does HyprPanel come with any themes?
 Yes, HyprPanel comes with themes that can be imported in the settings dialog under `Theming > General Settings` by clicking the **Import** button. These themes can be found in the HyprPanel directory under `themes`.
 
+You can also preview the themes on the [Themes Page](../configuration/themes.md).
+
 ## Help! Why are some of my icons missing or showing up as squares?
-Most icons in HyprPanel are nerd-font icons. Some icons such as the battery and network icons are system icons.
+Most symbols in HyprPanel are sourced from nerd-fonts. Some, such as the battery and network symbols, are system-based.
 
-If you are seeing squares instead of icons, it is likely that you do not have the required fonts installed. You can install the required fonts by following the nerdfont installation instructions in the [Installation Guide](../getting_started/installation.md#installing-nerdfonts).
+If you are seeing squares instead of the intended icons, it's likely that the necessary fonts are not installed. Follow the nerd-fonts installation instructions in the [Installation Guide](../getting_started/installation.md#installing-nerdfonts) to rectify this.
 
-If, however, some of your icons are outright missing, it is likely that the icon theme you are using does not have the required icons. To fix these missing icons you will have to install a theme that contains the required icons.
+However, if some symbols are still absent, your current system icon theme may not include them. To resolve this, install a theme that includes the necessary symbols.
 
 ## Why are my icons misaligned?
 HyprPanel relies heavily on nerd-fonts for its icons. If your icons are misaligned, then make sure that you have the right font installed that is needed for HyprPanel.
