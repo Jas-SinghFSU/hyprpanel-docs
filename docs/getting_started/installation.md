@@ -36,6 +36,9 @@ HyprPanel will not run without the required dependencies.
 ## Used for Tracking GPU Usage in your Dashboard (NVidia only)
 python
 python-gpustat
+
+## Only if a pywal hook from wallpaper changes applied through settings is desired
+pywal
 ```
 
 These dependencies can be installed on arch-based systems using **BOTH** of the following commands:
