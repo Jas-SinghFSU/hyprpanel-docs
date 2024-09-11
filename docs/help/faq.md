@@ -100,12 +100,13 @@ The built in GTK Calendar is quite awful in many regards and has extremely limit
 ## Can I use keybinds to perform certain actions in the panel?
 Yes, you can use the commands found in the [CLI Page](../configuration/cli.md) to open specific menus in the panel.
 
-## I need help with something else. Where can I go?
-Feel free to hop into the HyprPanel [discord server](https://discord.gg/MNpg7Z2b3a) and ask for help in the `#help` channel.
-
 ## HyprPanel seems to disable the Tearing I have enabled in my Hyprland configuration. How can I fix this?
 Hyprland states that in order for Tearing to be enabled, the full screen application must be the only thing visible on the screen.
 
 HyprPanel has Notifications, OSDs and if configured, the Bar as an overlay which means that it's given priority over the full screen application.
 
 In order to fix this, you can enable the `Tearing Compatible` options under `Configuration > General` in the settings dialog. This will demote all of the overlays to one layer down which satisfies Hyprland's requirements for Tearing to be enabled.
+
+## I need help with something else. Where can I go?
+Feel free to hop into the HyprPanel [discord server](https://discord.gg/MNpg7Z2b3a) and ask for help in the `#help` channel.
+
