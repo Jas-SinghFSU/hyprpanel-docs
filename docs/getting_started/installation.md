@@ -83,7 +83,7 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
 	  inherit system;
 	  # ...
 	  overlays = [
-        inputs.hyprpanel.overlay.${system}
+        inputs.hyprpanel.overlay
 	  ];
 	};
   in {
