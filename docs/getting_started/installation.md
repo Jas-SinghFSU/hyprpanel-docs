@@ -58,6 +58,8 @@ power-profiles-daemon
 
 ### Arch
 
+To install the dependencies on Arch, you can use the following commands:
+
 ##### pacman:
 
 ```sh
@@ -73,9 +75,9 @@ yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat a
 
 ### Fedora
 
-##### COPR
-
 Add [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/) for most hyprland-related dependencies, and hues-sueh/packages for matugen. Both provide the swww package, so prioritise the former repo:
+
+##### COPR
 
 ```sh
 sudo dnf copr enable solopasha/hyprland
