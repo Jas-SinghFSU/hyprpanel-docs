@@ -56,18 +56,56 @@ pacman-contrib
 power-profiles-daemon
 ```
 
-These dependencies can be installed on arch-based systems using **BOTH** of the following commands:
+### Arch
 
-#### Pacman
+pacman:
 
 ```sh
-sudo pacman -S pipewire bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon
+sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon
 ```
 
-#### AUR
+AUR:
 
 ```sh
+
 yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat aylurs-gtk-shell-git
+```
+
+NOTE: You MUST run both the pacman and AUR commands to install all the dependencies.
+
+### Fedora
+
+COPR - Add [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/) for most hyprland-related dependencies, and hues-sueh/packages for matugen. Both provide the swww package, so prioritise the former repo:
+
+```sh
+sudo dnf copr enable solopasha/hyprland
+sudo dnf copr enable heus-sueh/packages
+sudo dnf config-manager --save --setopt=copr:copr.fedorainfracloud.org:heus-sueh:packages.priority=200
+```
+
+DNF:
+
+```sh
+sudo dnf install pipewire libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth aylurs-gtk-shell power-profiles-daemon gvfs
+```
+
+bun:
+
+```sh
+bun install -g sass
+```
+
+flatpak:
+
+```sh
+flatpak install flathub --system com.dec05eba.gpu_screen_recorder
+```
+
+Optional Dependencies
+pip:
+
+```sh
+sudo dnf install python python3-pip; pip install gpustat pywal
 ```
 
 ### NixOS & Home Manager
