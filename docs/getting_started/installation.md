@@ -71,8 +71,6 @@ AUR:
 yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat aylurs-gtk-shell-git
 ```
 
-NOTE: You MUST run both the pacman and AUR commands to install all the dependencies.
-
 ### Fedora
 
 COPR - Add [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/) for most hyprland-related dependencies, and hues-sueh/packages for matugen. Both provide the swww package, so prioritise the former repo:
