@@ -58,13 +58,13 @@ power-profiles-daemon
 
 ### Arch
 
-#### pacman:
+##### pacman:
 
 ```sh
 sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon
 ```
 
-#### AUR:
+##### AUR:
 
 ```sh
 
@@ -73,7 +73,7 @@ yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat a
 
 ### Fedora
 
-#### COPR
+##### COPR
 
 Add [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/) for most hyprland-related dependencies, and hues-sueh/packages for matugen. Both provide the swww package, so prioritise the former repo:
 
@@ -83,19 +83,19 @@ sudo dnf copr enable heus-sueh/packages
 sudo dnf config-manager --save --setopt=copr:copr.fedorainfracloud.org:heus-sueh:packages.priority=200
 ```
 
-#### DNF:
+##### DNF:
 
 ```sh
 sudo dnf install pipewire libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth aylurs-gtk-shell power-profiles-daemon gvfs
 ```
 
-#### bun:
+##### bun:
 
 ```sh
 bun install -g sass
 ```
 
-#### flatpak:
+##### flatpak:
 
 ```sh
 flatpak install flathub --system com.dec05eba.gpu_screen_recorder
