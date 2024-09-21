@@ -14,6 +14,14 @@ The **Default Terminal** determines which terminal emulator to use when opening 
 
 Additionally, this is where you can **Import** or **Export** your HyprPanel configuration.
 
+### Scaling
+
+The scaling section allows you to scale all the different aspects of the panel individually.
+
+Additionally in this section, you can configure the **Scaling Priority**. Scaling priority helps GDK - which HyprPanel uses - to determine how pixels on the screen are calculated so it can spawn menus at the right location (where the button is clicked).
+
+In most scenarios, the default setting of `gdk` should work fine. However, if you notice that your drop-down menus are spawning at the wrong location or outside of your screen, you can try changing the scaling priority to `hyprland` or `both` and see if it resolves your issue.
+
 ## Bar
 
 This is where you can configure the behavior of the panel bar. The options in this tab let you configure the panel's behavior and the settings of all the modules that are displayed on the bar.
