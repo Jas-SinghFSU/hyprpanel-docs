@@ -57,6 +57,30 @@ The **Layouts** section allows you to configure the layout of the panel. If you 
 }
 ```
 
+Additionally, you can also use a combination of a wild-card to apply the layout to all monitors not explicitly defined. For example, if you want to apply the same layout to all monitors EXCEPT monitor 2, you can define the layout as follows:
+
+```json
+{
+  "*": {
+    "left": ["dashboard", "workspaces", "windowtitle"],
+    "middle": ["media"],
+    "right": [
+      "volume",
+      "network",
+      "bluetooth",
+      "systray",
+      "clock",
+      "notifications"
+    ]
+  },
+  "2": {
+    "left": ["dashboard", "workspaces", "windowtitle"],
+    "middle": ["media"],
+    "right": ["volume", "clock", "notifications"]
+  }
+}
+```
+
 The numbers `0`, `1`, and `2` represent the monitor index. The `left`, `middle`, and `right` keys represent the modules that will be displayed on the left, middle, and right side of the panel, respectively. Each section (left, middle, right) is an array of module names that will be displayed in the order they are listed. You can select from the following modules:
 
 ```text
