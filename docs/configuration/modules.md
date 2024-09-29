@@ -1,5 +1,6 @@
 # Modules
-Modules are the buttons that appear in the bar that display information or provide functionality. They can be added, removed, and customized to your liking. Modules are the core of the bar and are what make it useful. 
+
+Modules are the buttons that appear in the bar that display information or provide functionality. They can be added, removed, and customized to your liking. Modules are the core of the bar and are what make it useful.
 
 These modules can be added on any side of the bar (left, middle, right) in any order. Each module can be configured and themed in the settings dialog.
 
@@ -15,7 +16,7 @@ Modules can also be themed in the **Custom Modules** section of the **Theming** 
 
 [![Modules](/configuration/modules.png)](/configuration/modules.png)
 
-### Standard  Modules
+### Standard Modules
 
 **Standard Modules** are modules with predefined behavior and settings. These modules usually have a drop-down menu associated with them and can be configured to some extent.
 
@@ -51,13 +52,16 @@ netstat
 kbinput
 updates
 weather
+submap
 power
 ```
+
 ### Spawning Drop-Down Menus
 
 In order to spawn a drop-down menu you can assign the `menu:menu_name` command to any of the mouse actions. For example, to spawn the `dashboard` menu on left-click you would assign the `menu:dashboard` command to the left-click action of a module.
 
 Here is a list of how to spawn each menu:
+
 ```Text
 menu:audio
 menu:network
