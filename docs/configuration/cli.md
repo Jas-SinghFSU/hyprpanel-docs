@@ -71,6 +71,6 @@ Commands in AGS can be executed by using the -r flag and passing a function as a
 ags -r "isWindowVisible('bar-0')"
 ```
 
-| Command                       | Description                        | params      |
+| Command                       | Description                        | Params      |
 | ----------------------------- | ---------------------------------- | ----------- |
 | isWindowVisible('windowName') | Checks if an AGS window is toggled | window name |
