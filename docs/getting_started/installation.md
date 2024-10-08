@@ -114,6 +114,7 @@ sudo dnf install python python3-pip; pip install gpustat pywal
 ### NixOS & Home Manager
 
 Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS using the provided Nix Flake. First, add the repository to your Flake's inputs, and enable the overlay.
+Note: if you do not use flakes, skip to the section labelled *NixOS without flakes*.
 
 #### flake.nix
 
@@ -174,6 +175,34 @@ home.packages = with pkgs; [
 wayland.windowManager.hyprland.settings.exec-once = [
   "${pkgs.hyprpanel}/bin/hyprpanel"
 ];
+
+```
+
+### NixOS Without Flakes
+Here's an example installation of HyprPanel without flakes.
+
+```
+# configuration.nix
+{ config, pkgs, ... }:
+
+let
+  hyprpanel-overlay = (final: prev: {
+    hyprpanel = prev.callPackage (pkgs.fetchFromGitHub {
+      owner = "Jas-SinghFSU";
+      repo = "HyprPanel";
+      rev = "master";
+      sha256 = "15ngvgkxy5d084wb0m9ans96q2xcgc22p8m5f2p7nr5qc6qcqmpa";
+    }) {};
+  });
+in
+{
+  # Your other options..
+  nixpkgs.overlays = [ hyprpanel-overlay ];
+  environment.systemPackages = with pkgs; [
+    # Other packages...
+    hyprpanel
+  ];
+}
 
 ```
 
