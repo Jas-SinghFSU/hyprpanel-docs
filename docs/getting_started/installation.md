@@ -115,67 +115,75 @@ sudo dnf install python python3-pip; pip install gpustat pywal
 
 Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS using the provided Nix Flake. First, add the repository to your Flake's inputs, and enable the overlay.
 
-#### flake.nix
+#### example flake.nix without home-manager
 
 ```nix
 {
-  inputs.hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    inputs = {
+      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # this can be stable, but if it do not make hyprpanel follow it
+      hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    };
   # ...
 
-  outputs = { self, nixpkgs, ... }@inputs:
-  let
-    # ...
-	system = "x86_64-linux"; # change to whatever your system should be.
-    pkgs = import nixpkgs {
-	  inherit system;
-	  # ...
-	  overlays = [
-        inputs.hyprpanel.overlay
-	  ];
-	};
+  outputs = inputs @ {
+    nixpkgs,
+    hyprpanel,
+    ...
+  }: let
+	system = "x86_64-linux"; # change to whatever your system should be
   in {
-    # ...
-  }
+    nixosConfigurations."${host}" = nixpkgs.lib.nixosSystem {
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          inputs.hyprpanel.overlay
+        ];
+      };
+      specialArgs = {
+        inherit system;
+        inherit inputs;
+      };
+    };
+  };
+}
 }
 ```
 
+#### example flake.nix example with home-manager
+```nix
+{
+    inputs = {
+      hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+      home-manager.url = "github:nix-community/home-manager/master";
+    };
+  # ...
+
+  outputs = inputs @ {
+    home-manager,
+    hyprpanel,
+    ...
+  }: let
+	system = "x86_64-linux"; # change to whatever your system should be
+  in {
+    homeConfigurations."username@host" = home-manager.lib.homeManagerConfiguration {
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [
+          inputs.hyprpanel.overlay
+        ];
+      };
+      extraSpecialArgs = {
+        inherit system;
+        inherit inputs;
+      };
+    };
+  };
+}
+}
+
 Once you've set up the overlay, you can reference HyprPanel with `pkgs.hyprpanel` as if it were any other Nix package. This means you can reference it as a NixOS system/user package, a Home-Manager user package, or as a direct reference in your Hyprland configuration (if your configuration is managed by Home-Manager). The first three methods will add it to your `$PATH` (first globally, second two user-only), however the final will not.
 
-#### configuration.nix & home.nix
-
-```nix
-# configuration.nix
-
-# install it as a system package
-environment.systemPackages = with pkgs; [
-  # ...
-  hyprpanel
-  # ...
-];
-
-# or install it as a user package
-users.users.<username>.packages = with pkgs; [
-  # ...
-  hyprpanel
-  # ...
-];
-
-
-# home.nix
-
-# install it as a user package with home-manager
-home.packages = with pkgs; [
-  # ...
-  hyprpanel
-  # ...
-];
-
-# or reference it directly in your Hyprland configuration
-wayland.windowManager.hyprland.settings.exec-once = [
-  "${pkgs.hyprpanel}/bin/hyprpanel"
-];
-
-```
+**Make sure to** place `pkgs.hyprpanel` in `environment.systemPackages` or `home.packages`.
 
 ## Installing NerdFonts
 
