@@ -120,7 +120,7 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
 ```nix
 {
     inputs = {
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # this can be stable, but if it do not make hyprpanel follow it
+      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # this can be stable, but if it is do not make hyprpanel follow it
       hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
     };
   # ...
