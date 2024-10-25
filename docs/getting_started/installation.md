@@ -115,7 +115,7 @@ sudo dnf install python python3-pip; pip install gpustat pywal
 
 Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS using the provided Nix Flake. First, add the repository to your Flake's inputs, and enable the overlay.
 
-#### example flake.nix without home-manager
+#### Example flake.nix without home-manager
 
 ```nix
 {
@@ -149,7 +149,7 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
 }
 ```
 
-#### example flake.nix example with home-manager
+#### Example flake.nix example with home-manager
 ```nix
 {
     inputs = {
@@ -180,6 +180,7 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
   };
 }
 }
+```
 
 Once you've set up the overlay, you can reference HyprPanel with `pkgs.hyprpanel` as if it were any other Nix package. This means you can reference it as a NixOS system/user package, a Home-Manager user package, or as a direct reference in your Hyprland configuration (if your configuration is managed by Home-Manager). The first three methods will add it to your `$PATH` (first globally, second two user-only), however the final will not.
 
