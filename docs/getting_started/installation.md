@@ -119,10 +119,10 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
 
 ```nix
 {
-    inputs = {
-      nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # this can be stable, but if it is do not make hyprpanel follow it
-      hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-    };
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable"; # this can be stable, but if it is do not make hyprpanel follow it
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+  };
   # ...
 
   outputs = inputs @ {
@@ -130,7 +130,7 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
     hyprpanel,
     ...
   }: let
-	system = "x86_64-linux"; # change to whatever your system should be
+    system = "x86_64-linux"; # change to whatever your system should be
   in {
     nixosConfigurations."${host}" = nixpkgs.lib.nixosSystem {
       pkgs = import nixpkgs {
@@ -146,16 +146,15 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
     };
   };
 }
-}
 ```
 
 #### Example flake.nix example with home-manager
 ```nix
 {
-    inputs = {
-      hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
-      home-manager.url = "github:nix-community/home-manager/master";
-    };
+  inputs = {
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    home-manager.url = "github:nix-community/home-manager/master";
+  };
   # ...
 
   outputs = inputs @ {
@@ -163,7 +162,7 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
     hyprpanel,
     ...
   }: let
-	system = "x86_64-linux"; # change to whatever your system should be
+    system = "x86_64-linux"; # change to whatever your system should be
   in {
     homeConfigurations."username@host" = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
@@ -178,7 +177,6 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
       };
     };
   };
-}
 }
 ```
 
