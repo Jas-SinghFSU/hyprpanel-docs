@@ -22,6 +22,10 @@ curl -fsSL https://bun.sh/install | bash && \
 aylurs-gtk-shell-git
 aylurs-gtk-shell
 
+## AGS requirements (if not already installed)
+networkmanager
+gnome-bluetooth-3.0
+
 pipewire
 
 ## Resource monitoring modules
@@ -39,10 +43,6 @@ dart-sass
 
 ## Brightness module for OSD
 brightnessctl
-
-## AGS requirements
-networkmanager
-gnome-bluetooth-3.0
 ```
 
 ::: warning
