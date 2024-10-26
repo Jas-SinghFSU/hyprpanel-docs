@@ -18,6 +18,10 @@ curl -fsSL https://bun.sh/install | bash && \
 #### Required
 
 ```sh
+## AGS - Pick One
+aylurs-gtk-shell-git
+aylurs-gtk-shell
+
 pipewire
 
 ## Resource monitoring modules
@@ -172,6 +176,7 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
 ```
 
 #### Example flake.nix example with home-manager
+
 ```nix
 {
   inputs = {
