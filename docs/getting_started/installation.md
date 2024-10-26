@@ -19,19 +19,25 @@ curl -fsSL https://bun.sh/install | bash && \
 
 ```sh
 pipewire
+
+## Resource monitoring modules
 libgtop
+
+## Bluetooth menu utilities
 bluez
 bluez-utils
-grimblast
-gpu-screen-recorder
-hyprpicker
-btop
-networkmanager
-matugen
+
+## Copy/Paste utilities
 wl-clipboard
-swww
+
+## Compiler for sass/scss
 dart-sass
+
+## Brightness module for OSD
 brightnessctl
+
+## AGS requirements
+networkmanager
 gnome-bluetooth-3.0
 ```
 
@@ -54,6 +60,24 @@ pacman-contrib
 
 ## To switch between power profiles in the battery module
 power-profiles-daemon
+
+## To take snapshots with the default snapshot shortcut in the dashboard
+grimblast
+
+## To record screen through the dashboard record shortcut
+gpu-screen-recorder
+
+## To enable the eyedropper color picker with the default snapshot shortcut in the dashboard
+hyprpicker
+
+## To click resource/stat bars in the dashboard and open btop
+btop
+
+## To enable matugen based color theming
+matugen
+
+## To enable matugen based color theming and setting wallpapers
+swww
 ```
 
 ### Arch
@@ -69,7 +93,6 @@ sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass 
 ##### AUR:
 
 ```sh
-
 yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat aylurs-gtk-shell-git
 ```
 
