@@ -1,12 +1,28 @@
 /* Example: Brand Customization */
 :root {
-    --vp-c-brand-1: var(--ctp-latte-red);
-    --vp-c-brand-2: var(--ctp-latte-lavender);
-    --vp-c-brand-3: var(--ctp-latte-mauve);
+  --vp-c-brand-1: var(--ctp-latte-red);
+  --vp-c-brand-2: var(--ctp-latte-lavender);
+  --vp-c-brand-3: var(--ctp-latte-mauve);
 }
 
 .dark {
-    --vp-c-brand-1: var(--ctp-mocha-red);
-    --vp-c-brand-2: var(--ctp-mocha-lavender);
-    --vp-c-brand-3: var(--ctp-mocha-mauve);
+  --vp-c-brand-1: var(--ctp-mocha-red);
+  --vp-c-brand-2: var(--ctp-mocha-lavender);
+  --vp-c-brand-3: var(--ctp-mocha-mauve);
+}
+
+@font-face {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  src: url("/fonts/JetBrainsMonoNerdFontPropo-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+code {
+  font-family: "JetBrainsMono Nerd Font Propo", monospace;
+}
+
+pre code {
+  font-family: "JetBrainsMono Nerd Font Propo", monospace;
 }

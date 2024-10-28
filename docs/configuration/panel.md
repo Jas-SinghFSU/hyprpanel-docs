@@ -151,6 +151,8 @@ This section allows you to change the icon of your dashboard module in the bar i
 
 This section allows you to configure the behavior of the workspace module. You can configure the number of workspaces, how workspaces are represented, whether the workspace module should display the workspaces specific to the monitors, the scroll behavior, and the workspace icon spacing.
 
+#### Show Workspace Icons
+
 Additionally, you can assign each workspace a custom icon by enabling the `Show Workspace Icons` option. You can also assign a custom color to each workspace by providing the color alongside the icon.
 
 To define an icon for a workspace, you can either use simple `key: value` pairs - if you don't want to assign a custom color. Ex:
@@ -190,6 +192,43 @@ You can also mix and match the two layouts:
   "5": ""
 }
 ```
+
+#### Map Workspaces to Application Icons
+
+::: info
+This setting relies on `Map Workspaces to Icons` to be enabled
+:::
+
+This setting enables the ability to show active windows in the workspace indicator module instead of static icons.
+
+You can assign custom icons to applications by defining rules in the `App Icon Mappings` field. This field takes a JSON object which by default defines an icon for a hyprland window class.
+
+For example, if you would like to assign rules for **Discord**, **YouTube** and **Wezterm** you can do so as follows:
+
+```json
+{
+  "[dD]iscord": "󰙯",
+  "title:YouTube": "",
+  "class:wezterm$": ""
+}
+```
+
+In this example, the discord app icon will be automatically applied to any application open that has the class name d(D)iscord - aka the discord app only; same for wezterm.
+
+However, for the YouTube icon, that will be applied to any application that has a title of `YouTube`. In other words, if you have an active tab open in your browser pointing to youtube.com, it will show the youtube icon.
+
+This ruleset allows you to define icons based off of the window's class (default) or title in a similar way to Hyprland. You can find the titles and classes of you current windows by using the command:
+
+```
+hyprctl clients
+```
+
+::: tip
+You can still define colors in your `Workspace Icon & Color Mappings` in conjunction with this setting to apply workspace specific icon colors - despite them being dynamic.
+:::
+::: warning
+A default list of icon mappings are provided but are not exhaustive. You may have to provide your own.
+:::
 
 ### Window Titles
 
