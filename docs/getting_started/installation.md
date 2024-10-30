@@ -154,22 +154,18 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
 
   outputs = inputs @ {
     nixpkgs,
-    hyprpanel,
     ...
   }: let
     system = "x86_64-linux"; # change to whatever your system should be
   in {
     nixosConfigurations."${host}" = nixpkgs.lib.nixosSystem {
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          inputs.hyprpanel.overlay
-        ];
-      };
       specialArgs = {
         inherit system;
         inherit inputs;
       };
+      modules = [
+        {nixpkgs.overlays = [inputs.hyprpanel.overlay];}
+      ];
     };
   };
 }
