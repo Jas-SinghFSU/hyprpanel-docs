@@ -270,7 +270,9 @@ The bluetooth module displays your bluetooth status. This section allows you to 
 
 ### System Tray
 
-The system tray module displays icons for processes running in the background. In this section you can configure which icons to blacklist from displaying in the system tray.
+The system tray module displays icons for processes running in the background. In this section you can configure which icons to blacklist from displaying in the system tray. Additionally, you can assign custom icons and colors to tray applications.
+
+#### Ignore List
 
 The **Ignore List** field allows you to specify which icons you do not want to display in the system tray. This field is an array of strings that should contain the names of the applications you want to ignore.
 
@@ -281,6 +283,40 @@ For example, if you want to ignore the Spotify icon, you would enter the followi
 ```bash
 ["spotify-client"]
 ```
+
+#### Custom Systray Icons
+
+The **Custom Systray Icons** field lets you define a JSON map to assign custom icons to applications. The format of this object is as follows:
+
+```ts
+{
+    "appId_or_regex" : {
+        "icon": "󰙯",
+        "color": "#b4befe"
+    }
+}
+```
+
+Where `appId` can be either a specific application ID string or a regex pattern that matches multiple application IDs.
+
+You can use a Hyprpanel provided method to get a list of ALL application IDs currently in the tray by running the following command:
+
+```sh
+ags -r "getSystrayItems()"
+```
+
+To give you an example, if you wanted to assign a specific icon to Spotify and Steam, you could do so by defining these rules:
+
+```ts
+{
+  "steam": { "icon": "󰓓", "color": "#89b4fa" },
+  "spotify-client": { "icon": "󰓇", "color": "#94e2d5" }
+}
+```
+
+:::tip
+You do not have to define a color for the icons. Not doing so will automatically use the color defined in `Theming > Bar > System Tray > Custom Icons`.
+:::
 
 ### Clock
 
