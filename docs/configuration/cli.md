@@ -71,6 +71,13 @@ Commands in AGS can be executed by using the -r flag and passing a function as a
 ags -r "isWindowVisible('bar-0')"
 ```
 
-| Command                       | Description                        | Params      |
-| ----------------------------- | ---------------------------------- | ----------- |
-| isWindowVisible('windowName') | Checks if an AGS window is toggled | window name |
+Format:
+
+```bash
+ags -r "command"
+```
+
+| Command                       | Description                                                        | Params      |
+| ----------------------------- | ------------------------------------------------------------------ | ----------- |
+| isWindowVisible('windowName') | Checks if an AGS window is toggled                                 | window name |
+| getSystrayItems()             | Gets a list of IDs for the current applications in the system tray | --          |
