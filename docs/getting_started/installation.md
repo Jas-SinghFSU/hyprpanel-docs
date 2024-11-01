@@ -91,7 +91,7 @@ To install the dependencies on Arch, you can use the following commands:
 ##### pacman:
 
 ```sh
-sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon
+sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon gvfs
 ```
 
 ##### AUR:
@@ -255,6 +255,14 @@ exec-once = ags
 ```
 
 This will automatically launch HyprPanel on Hyprland startup.
+
+#### NixOS
+
+On Nix you can start Hyprpanel with the following command:
+
+```sh
+hyprpanel
+```
 
 ::: warning
 HyprPanel handles notifications through the AGS built-in notification service. If you're already using a notification daemon such as Dunst, Mako or SwayNC, you may have to stop them to prevent conflicts with HyprPanel.
