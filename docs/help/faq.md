@@ -137,6 +137,8 @@ Hyprland states that in order for Tearing to be enabled, the full screen applica
 HyprPanel has Notifications, OSDs and if configured, the Bar as an overlay which means that it's given priority over the full screen application.
 
 In order to fix this, you can enable the `Tearing Compatible` options under `Configuration > General` in the settings dialog. This will demote all of the overlays to one layer down which satisfies Hyprland's requirements for Tearing to be enabled.
+## Error: Requiring GTop, version none: Typelib file for namespace 'GTop'
+Inorder to fix this, an external library called Libgtop needs to be installed.You can run `sudo pacman -S libgtop` and reload ags again.
 
 ## I need help with something else. Where can I go?
 
