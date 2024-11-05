@@ -126,6 +126,10 @@ If the bar is covering the content of elements such as menus for certain applica
 
 The built in GTK Calendar is quite awful in many regards and has extremely limited functionality. HyprPanel will soon have its own calendar that will be more reliable and have more features. Hang tight!
 
+## Update style changes not available on the settings?
+
+If you are on a unix like environment, you can create an alias  like `alias ags_style_edit="code .config/ags/scss"`. Then you can open a terminal and use the alias as `ags_style_edit` and make changes to the styles files under scss folder. Replace code with your preferred editor
+
 ## Can I use keybinds to perform certain actions in the panel?
 
 Yes, you can use the commands found in the [CLI Page](../configuration/cli.md) to open specific menus in the panel.
