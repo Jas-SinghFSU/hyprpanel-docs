@@ -471,3 +471,33 @@ Each entry in the directories section contains the following configurable option
 
 - The Label/Name of the directory
 - The command to run when the label is clicked
+
+## Custom Modules
+
+### CPU Temperature
+
+In order to display the CPU Temperature properly, you must first determine the correct CPU sensor for your system. To do that you can use the following command:
+
+```sh
+for i in /sys/class/hwmon/hwmon*/temp*_input; do echo "$(<$(dirname $i)/name): $(cat ${i%_*}_label 2>/dev/null || echo $(basename ${i%_*})) $(readlink -f $i)"; done
+```
+
+This will generate a list of temperature sensors. For example:
+
+```sh
+nvme: Composite /sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/nvme/nvme0/hwmon0/temp1_input
+nvme: Sensor 1 /sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/nvme/nvme0/hwmon0/temp2_input
+nvme: Sensor 2 /sys/devices/pci0000:00/0000:00:01.1/0000:01:00.0/nvme/nvme0/hwmon0/temp3_input
+nvme: Composite /sys/devices/pci0000:00/0000:00:01.2/0000:02:00.2/0000:03:00.0/0000:04:00.0/nvme/nvme1/hwmon1/temp1_input
+nvme: Sensor 1 /sys/devices/pci0000:00/0000:00:01.2/0000:02:00.2/0000:03:00.0/0000:04:00.0/nvme/nvme1/hwmon1/temp2_input
+k10temp: Tctl /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input
+k10temp: Tccd1 /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp3_input
+```
+
+In this case, `k10temp: Tctl /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input` is the sensor that want to use.
+
+So we can simply copy the file path and supply that to the `CPU Temperature Sensor` field in the settings at `Configuration > Custom Modules > CPU Temperature Sensor`. In this case we would input the following value into the text box:
+
+```sh
+/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input
+```
