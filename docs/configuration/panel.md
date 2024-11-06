@@ -97,6 +97,7 @@ The numbers `0`, `1`, and `2` represent the monitor index. The `left`, `middle`,
 "systray"
 "ram"
 "cpu"
+"cputemp"
 "storage"
 "netstat"
 "kbinput"
