@@ -47,6 +47,7 @@ Additionally, they can spawn any drop-down menu by having the `menu:menu_name` c
 ```Text
 ram
 cpu
+cputemp
 storage
 netstat
 kbinput

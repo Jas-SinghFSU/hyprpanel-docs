@@ -74,10 +74,11 @@ ags -r "isWindowVisible('bar-0')"
 Format:
 
 ```bash
-ags -r "command"
+ags -r "command()"
 ```
 
 | Command                       | Description                                                        | Params      |
 | ----------------------------- | ------------------------------------------------------------------ | ----------- |
 | isWindowVisible('windowName') | Checks if an AGS window is toggled                                 | window name |
 | getSystrayItems()             | Gets a list of IDs for the current applications in the system tray | --          |
+| clearAllNotifications()       | Clears all of the notifications that currently exist               | --          |
