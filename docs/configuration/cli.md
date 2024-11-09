@@ -77,8 +77,9 @@ Format:
 ags -r "command()"
 ```
 
-| Command                       | Description                                                        | Params      |
-| ----------------------------- | ------------------------------------------------------------------ | ----------- |
-| isWindowVisible('windowName') | Checks if an AGS window is toggled                                 | window name |
-| getSystrayItems()             | Gets a list of IDs for the current applications in the system tray | --          |
-| clearAllNotifications()       | Clears all of the notifications that currently exist               | --          |
+| Command                       | Description                                                        | Params        |
+| ----------------------------- | ------------------------------------------------------------------ | ------------- |
+| isWindowVisible('windowName') | Checks if an AGS window is toggled                                 | windowName    |
+| getSystrayItems()             | Gets a list of IDs for the current applications in the system tray | --            |
+| clearAllNotifications()       | Clears all of the notifications that currently exist               | --            |
+| setWallpaper('wallpaperPath') | Sets the input file as the active wallpaper                        | wallpaperPath |
