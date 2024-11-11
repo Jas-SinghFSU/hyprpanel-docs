@@ -138,6 +138,12 @@ HyprPanel has Notifications, OSDs and if configured, the Bar as an overlay which
 
 In order to fix this, you can enable the `Tearing Compatible` options under `Configuration > General` in the settings dialog. This will demote all of the overlays to one layer down which satisfies Hyprland's requirements for Tearing to be enabled.
 
+## Why does my panel freez/crash when connecting to a network/wifi in the Network module/menu?
+
+The current implementation of the network module relies on `nmcli` and it's not very intuitive. The implementation also needs to be updated.
+
+Worry not, this is on the agenda and once Hyprpanel moves to AGS2/Astal, the network module will get a complete rework. Hang tight, I feel your pain.
+
 ## I need help with something else. Where can I go?
 
 Feel free to hop into the HyprPanel [discord server](https://discord.gg/MNpg7Z2b3a) and ask for help in the `#help` channel.
