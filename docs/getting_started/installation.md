@@ -74,6 +74,9 @@ gpu-screen-recorder
 ## To enable the eyedropper color picker with the default snapshot shortcut in the dashboard
 hyprpicker
 
+## To enable hyprland's very own blue light filter
+hyprsunset
+
 ## To click resource/stat bars in the dashboard and open btop
 btop
 
