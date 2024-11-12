@@ -100,7 +100,7 @@ sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass 
 ##### AUR:
 
 ```sh
-yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat aylurs-gtk-shell-git
+yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git
 ```
 
 ### Fedora
