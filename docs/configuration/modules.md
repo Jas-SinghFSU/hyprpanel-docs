@@ -54,6 +54,7 @@ kbinput
 updates
 weather
 submap
+hyprsunset
 power
 ```
 
