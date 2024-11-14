@@ -159,6 +159,11 @@ cd /path/to/HyprPanel
 ```
 
 2. Verify that there is a `PKGBUILD` file, if not you are not on the latest version of HyprPanel; please update if so.
+
+```
+git pull
+```
+
 3. Run the following command from the Hyprpanel directory
 
 ```
@@ -178,3 +183,12 @@ agsv1 -q; agsv1
 ```
 
 This way importing themes and configs properly restarts AGS.
+
+::: info
+This also means that if you had any CLI commands that called `ags`, you will now have to update them all to `agsv1`. Ex:
+
+```
+agsv1 -t settings-dialog
+```
+
+:::
