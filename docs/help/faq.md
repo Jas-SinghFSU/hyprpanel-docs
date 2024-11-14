@@ -144,6 +144,57 @@ In order to fix this, you can enable the `Tearing Compatible` options under `Con
 ## Error: Requiring GTop, version none: Typelib file for namespace 'GTop'
 Inorder to fix this, an external library called Libgtop needs to be installed.You can run `sudo pacman -S libgtop` and reload ags again.
 
+## Why does my panel freez/crash when connecting to a network/wifi in the Network module/menu?
+
+The current implementation of the network module relies on `nmcli` and it's not very intuitive. The implementation also needs to be updated.
+
+Worry not, this is on the agenda and once Hyprpanel moves to AGS2/Astal, the network module will get a complete rework. Hang tight, I feel your pain.
+
 ## I need help with something else. Where can I go?
 
 Feel free to hop into the HyprPanel [discord server](https://discord.gg/MNpg7Z2b3a) and ask for help in the `#help` channel.
+
+## Help! I upgrade to AGS v2 and now I can't start Hyprpanel!
+
+If you are on an Arch based distro you can follow the steps below. Otherwise you may have to manually install a version of AGS below v2.
+
+1. CD into the directory in which you cloned Hyprpanel
+
+```
+cd /path/to/HyprPanel
+```
+
+2. Verify that there is a `PKGBUILD` file, if not you are not on the latest version of HyprPanel; please update if so.
+
+```
+git pull
+```
+
+3. Run the following command from the Hyprpanel directory
+
+```
+./make_agsv1.sh
+```
+
+To launch the panel on startup, you can add the following line to your `~/.config/hypr/hyprland.conf` file:
+
+```sh
+exec-once = agsv1
+```
+
+Be sure to update the following setting `Configuration > General > Restart Command` to
+
+```
+agsv1 -q; agsv1
+```
+
+This way importing themes and configs properly restarts AGS.
+
+::: info
+This also means that if you had any CLI commands that called `ags`, you will now have to update them all to `agsv1`. Ex:
+
+```
+agsv1 -t settings-dialog
+```
+
+:::
