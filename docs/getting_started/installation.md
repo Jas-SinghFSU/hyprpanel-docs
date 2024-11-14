@@ -103,6 +103,29 @@ sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass 
 yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git
 ```
 
+#### AGS v2
+
+::: warning
+AGS has been updated to version 2 which is no longer compatible with Hyprpanel.
+
+Hyprpanel will be transitioning to AGSv2 but in the meantime you can follow the following steps ONLY IF you are on AGS version 2.0 or higher.
+:::
+
+If you are on AGS version 2.0.0 or higher (check with `ags --version`) then you can follow the following steps to get AGS to work with Hyprpanel.
+
+1. CD into the directory in which you cloned Hyprpanel
+
+```
+cd /path/to/HyprPanel
+```
+
+2. Verify that there is a `PKGBUILD` file, if not you are not on the latest version of HyprPanel; please update if so.
+3. Run the following command from the Hyprpanel directory
+
+```
+./make_agsv1.sh
+```
+
 ### Fedora
 
 Add [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/) for most hyprland-related dependencies, and hues-sueh/packages for matugen. Both provide the swww package, so prioritise the former repo:
@@ -246,7 +269,11 @@ git clone https://github.com/Jas-SinghFSU/HyprPanel.git && \
 Once you've installed HyprPanel, you can launch it using the following command:
 
 ```sh
+## If on AGS version < 2.0.0
 ags
+
+## If on AGS version 2.0.0 or higher
+agsv1
 ```
 
 ### Launching the panel on startup
@@ -254,10 +281,22 @@ ags
 To launch the panel on startup, you can add the following line to your `~/.config/hypr/hyprland.conf` file:
 
 ```sh
+## If on AGS version < 2.0.0
 exec-once = ags
+
+## If on AGS version 2.0.0 or higher
+exec-once = agsv1
 ```
 
 This will automatically launch HyprPanel on Hyprland startup.
+
+If you are on AGSv2 then be sure to update the following setting `Configuration > General > Restart Command` to
+
+```
+agsv1 -q; agsv1
+```
+
+This way importing themes and configs properly restarts AGS.
 
 #### NixOS
 

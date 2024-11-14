@@ -147,3 +147,34 @@ Worry not, this is on the agenda and once Hyprpanel moves to AGS2/Astal, the net
 ## I need help with something else. Where can I go?
 
 Feel free to hop into the HyprPanel [discord server](https://discord.gg/MNpg7Z2b3a) and ask for help in the `#help` channel.
+
+## Help! I upgrade to AGS v2 and now I can't start Hyprpanel!
+
+If you are on AGS version 2.0.0 or higher (check with `ags --version`) then you can follow the following steps to get AGS to work with Hyprpanel.
+
+1. CD into the directory in which you cloned Hyprpanel
+
+```
+cd /path/to/HyprPanel
+```
+
+2. Verify that there is a `PKGBUILD` file, if not you are not on the latest version of HyprPanel; please update if so.
+3. Run the following command from the Hyprpanel directory
+
+```
+./make_agsv1.sh
+```
+
+To launch the panel on startup, you can add the following line to your `~/.config/hypr/hyprland.conf` file:
+
+```sh
+exec-once = agsv1
+```
+
+Be sure to update the following setting `Configuration > General > Restart Command` to
+
+```
+agsv1 -q; agsv1
+```
+
+This way importing themes and configs properly restarts AGS.
