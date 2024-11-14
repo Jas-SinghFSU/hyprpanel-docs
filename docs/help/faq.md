@@ -150,7 +150,7 @@ Feel free to hop into the HyprPanel [discord server](https://discord.gg/MNpg7Z2b
 
 ## Help! I upgrade to AGS v2 and now I can't start Hyprpanel!
 
-If you are on AGS version 2.0.0 or higher (check with `ags --version`) then you can follow the following steps to get AGS to work with Hyprpanel.
+If you are on an Arch based distro you can follow the steps below. Otherwise you may have to manually install a version of AGS below v2.
 
 1. CD into the directory in which you cloned Hyprpanel
 
