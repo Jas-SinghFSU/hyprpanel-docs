@@ -118,6 +118,11 @@ cd /path/to/HyprPanel
 ```
 
 2. Verify that there is a `PKGBUILD` file, if not you are not on the latest version of HyprPanel; please update if so.
+
+```
+git pull
+```
+
 3. Run the following command from the Hyprpanel directory
 
 ```
