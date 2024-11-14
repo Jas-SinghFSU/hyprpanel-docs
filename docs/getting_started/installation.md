@@ -100,7 +100,7 @@ sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass 
 ##### AUR:
 
 ```sh
-yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat aylurs-gtk-shell-git hyprsunset-git
+yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat hyprsunset-git
 ```
 
 #### AGS v2
@@ -108,10 +108,8 @@ yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat a
 ::: warning
 AGS has been updated to version 2 which is no longer compatible with Hyprpanel.
 
-Hyprpanel will be transitioning to AGSv2 but in the meantime you can follow the following steps ONLY IF you are on AGS version 2.0 or higher.
+Hyprpanel will be transitioning to AGSv2 but in the meantime you can follow the following steps to install AGS v1
 :::
-
-If you are on AGS version 2.0.0 or higher (check with `ags --version`) then you can follow the following steps to get AGS to work with Hyprpanel.
 
 1. CD into the directory in which you cloned Hyprpanel
 
