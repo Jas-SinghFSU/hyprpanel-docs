@@ -55,6 +55,7 @@ updates
 weather
 submap
 hyprsunset
+hypridle
 power
 ```
 

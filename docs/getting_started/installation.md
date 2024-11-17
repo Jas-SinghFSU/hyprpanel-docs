@@ -77,6 +77,9 @@ hyprpicker
 ## To enable hyprland's very own blue light filter
 hyprsunset
 
+## To enable hyprland's very own idle inhibitor
+hypridle
+
 ## To click resource/stat bars in the dashboard and open btop
 btop
 
@@ -100,7 +103,7 @@ sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass 
 ##### AUR:
 
 ```sh
-yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat hyprsunset-git
+yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat hyprsunset-git hypridle-git
 ```
 
 #### AGS v2
