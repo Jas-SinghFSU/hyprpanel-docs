@@ -126,6 +126,10 @@ If the bar is covering the content of elements such as menus for certain applica
 
 The built in GTK Calendar is quite awful in many regards and has extremely limited functionality. HyprPanel will soon have its own calendar that will be more reliable and have more features. Hang tight!
 
+## How can I apply custom css?
+
+You can simply create an alias  like `alias ags_style_edit="code .config/ags/scss"`. Then you can open a terminal and use the alias as `ags_style_edit` and make changes to the styles files under scss folder. Replace `code` with your preferred editor.
+
 ## Can I use keybinds to perform certain actions in the panel?
 
 Yes, you can use the commands found in the [CLI Page](../configuration/cli.md) to open specific menus in the panel.
@@ -137,6 +141,9 @@ Hyprland states that in order for Tearing to be enabled, the full screen applica
 HyprPanel has Notifications, OSDs and if configured, the Bar as an overlay which means that it's given priority over the full screen application.
 
 In order to fix this, you can enable the `Tearing Compatible` options under `Configuration > General` in the settings dialog. This will demote all of the overlays to one layer down which satisfies Hyprland's requirements for Tearing to be enabled.
+
+## Error: Requiring GTop, version none: Typelib file for namespace 'GTop'
+In order to fix this, an external library called Libgtop needs to be installed.You can run `sudo pacman -S libgtop` on arch based distros and restart AGS.
 
 ## Why does my panel freez/crash when connecting to a network/wifi in the Network module/menu?
 
