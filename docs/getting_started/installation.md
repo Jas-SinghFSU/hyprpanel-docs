@@ -249,7 +249,7 @@ HyprPanel uses [Nerdfonts](https://www.nerdfonts.com/) to display icons. You can
 ./install_fonts.sh
 ```
 
-If you install the fonts after installing HyperPanel, you will need to restart HyperPanel for the changes to take effect.
+If you install the fonts after installing HyprPanel, you will need to restart HyprPanel for the changes to take effect.
 
 ## Running HyprPanel
 
