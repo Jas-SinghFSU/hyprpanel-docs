@@ -1,52 +1,31 @@
 # Installation
 
-HyprPanel has a few dependencies that need to be installed before you can use it. You can find a list of these dependencies below:
+## Arch
 
-## Dependencies
-
-### Bun
-
-Bun is used to transpile and bundle HyprPanel. You can install it using the following command:
-
-```sh
-curl -fsSL https://bun.sh/install | bash && \
-  sudo ln -s $HOME/.bun/bin/bun /usr/local/bin/bun
+```bash
+yay -S ags-hyprpanel-git
 ```
 
-### Panel Dependencies
+## From Source
+
+### Dependencies
 
 #### Required
 
 ```sh
-## AGS - Pick One
-aylurs-gtk-shell-git
-aylurs-gtk-shell
-
-## AGS requirements (if not already installed)
-networkmanager
-gnome-bluetooth-3.0
-
-pipewire
-
-## Resource monitoring modules
+wireplumber
 libgtop
-
-## Bluetooth menu utilities
 bluez
 bluez-utils
-
-## Copy/Paste utilities
-wl-clipboard
-
-## Compiler for sass/scss
+networkmanager
 dart-sass
-
-## Brightness module for OSD
-brightnessctl
+wl-clipboard
+upower
+gvfs
 ```
 
 ::: warning
-HyprPanel will not run without the required dependencies.
+HyprPanel may not run properly without the required dependencies.
 :::
 
 #### Optional
@@ -55,6 +34,9 @@ HyprPanel will not run without the required dependencies.
 ## Used for Tracking GPU Usage in your Dashboard (NVidia only)
 python
 python-gpustat
+
+## To control screen/keyboard brightness
+brightnessctl
 
 ## Only if a pywal hook from wallpaper changes applied through settings is desired
 pywal
@@ -96,40 +78,14 @@ To install the dependencies on Arch, you can use the following commands:
 
 ##### pacman:
 
-```sh
-sudo pacman -S pipewire libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python gnome-bluetooth-3.0 pacman-contrib power-profiles-daemon gvfs
+```bash
+ sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs
 ```
 
 ##### AUR:
 
-```sh
-yay -S grimblast-git gpu-screen-recorder hyprpicker matugen-bin python-gpustat hyprsunset-git hypridle-git
-```
-
-#### AGS v2
-
-::: warning
-AGS has been updated to version 2 which is no longer compatible with Hyprpanel.
-
-Hyprpanel will be transitioning to AGSv2 but in the meantime you can follow the following steps to install AGS v1
-:::
-
-1. CD into the directory in which you cloned Hyprpanel
-
-```
-cd /path/to/HyprPanel
-```
-
-2. Verify that there is a `PKGBUILD` file, if not you are not on the latest version of HyprPanel; please update if so.
-
-```
-git pull
-```
-
-3. Run the following command from the Hyprpanel directory
-
-```
-./make_agsv1.sh
+```bash
+yay -S --needed grimblast-git gpu-screen-recorder-git hyprpicker matugen-bin python-gpustat hyprsunset-git hypridle-git
 ```
 
 ### Fedora
@@ -147,13 +103,13 @@ sudo dnf config-manager --save --setopt=copr:copr.fedorainfracloud.org:heus-sueh
 ##### DNF:
 
 ```sh
-sudo dnf install pipewire libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth aylurs-gtk-shell power-profiles-daemon gvfs
+sudo dnf install wireplumber upower libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth aylurs-gtk-shell power-profiles-daemon gvfs nodejs
 ```
 
-##### bun:
+##### npm:
 
 ```sh
-bun install -g sass
+npm install -g sass
 ```
 
 ##### flatpak:
@@ -171,6 +127,10 @@ sudo dnf install python python3-pip; pip install gpustat pywal
 ```
 
 ### NixOS & Home Manager
+
+::: warning
+NixOS instructions are pending updates for HyprPanel v2.
+:::
 
 Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS using the provided Nix Flake. First, add the repository to your Flake's inputs, and enable the overlay.
 
@@ -240,69 +200,39 @@ Once you've set up the overlay, you can reference HyprPanel with `pkgs.hyprpanel
 
 **Make sure to** place `pkgs.hyprpanel` in `environment.systemPackages` or `home.packages`.
 
-## Installing NerdFonts
+### Installing HyprPanel
 
-HyprPanel uses [Nerdfonts](https://www.nerdfonts.com/) to display icons. You can install them using the following command from within the HyprPanel directory:
+To install HyprPanel, you can run the following commands:
+
+```bash
+git clone https://github.com/Jas-SinghFSU/HyprPanel.git
+cd HyprPanel
+meson setup build
+meson compile -C build
+meson install -C build
+```
+
+### Installing NerdFonts
+
+HyprPanel uses [Nerdfonts](https://www.nerdfonts.com/) to display icons. You can install them using the following command from within the HyprPanel's `scripts` directory:
 
 ```sh
 # Installs the JetBrainsMono NerdFonts used for icons
-./install_fonts.sh
+./scripts/install_fonts.sh
 ```
 
 If you install the fonts after installing HyperPanel, you will need to restart HyperPanel for the changes to take effect.
 
 ## Running HyprPanel
 
-Once you've installed the dependencies, you must put the contents of the `HyprPanel` repository in your `~/.config/ags` directory. The command to do this is provided below.
+Once you have installed HyprPanel, you can run it by running the following command:
 
-If you already have something in that directory, it is recommended that you back it up with the following command:
+```bash
+hyprpanel
 
-```sh
-# Moves the current ~/.config/ags directory to ~/.config/ags.bkup
-mv $HOME/.config/ags $HOME/.config/ags.bkup
+# Or add it to your startup via
+exec-once = hyprpanel
 ```
-
-You can then install HyprPanel with the following command:
-
-```sh
-# Installs HyprPanel to ~/.config/ags
-git clone https://github.com/Jas-SinghFSU/HyprPanel.git && \
-  ln -s $(pwd)/HyprPanel $HOME/.config/ags
-```
-
-### Launching the panel
-
-Once you've installed HyprPanel, you can launch it using the following command:
-
-```sh
-## If on AGS version < 2.0.0
-ags
-
-## If on AGS version 2.0.0 or higher
-agsv1
-```
-
-### Launching the panel on startup
-
-To launch the panel on startup, you can add the following line to your `~/.config/hypr/hyprland.conf` file:
-
-```sh
-## If on AGS version < 2.0.0
-exec-once = ags
-
-## If on AGS version 2.0.0 or higher
-exec-once = agsv1
-```
-
-This will automatically launch HyprPanel on Hyprland startup.
-
-If you are on AGSv2 then be sure to update the following setting `Configuration > General > Restart Command` to
-
-```
-agsv1 -q; agsv1
-```
-
-This way importing themes and configs properly restarts AGS.
 
 #### NixOS
 
@@ -313,5 +243,5 @@ hyprpanel
 ```
 
 ::: warning
-HyprPanel handles notifications through the AGS built-in notification service. If you're already using a notification daemon such as Dunst, Mako or SwayNC, you may have to stop them to prevent conflicts with HyprPanel.
+HyprPanel handles notifications through the Astal notification service. If you're already using a notification daemon such as Dunst, Mako or SwayNC, you may have to stop them to prevent conflicts with HyprPanel.
 :::

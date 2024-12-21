@@ -305,11 +305,7 @@ Where `appId` can be either a specific application ID string or a regex pattern 
 You can use a Hyprpanel provided method to get a list of ALL application IDs currently in the tray by running the following command:
 
 ```sh
-# On AGS v1
-ags -r "getSystrayItems()"
-
-# On AGS v2
-agsv1 -r "getSystrayItems()"
+hyprpanel systrayItems
 ```
 
 To give you an example, if you wanted to assign a specific icon to Spotify and Steam, you could do so by defining these rules:
