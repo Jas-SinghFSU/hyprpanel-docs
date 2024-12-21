@@ -13,6 +13,7 @@ yay -S ags-hyprpanel-git
 #### Required
 
 ```sh
+aylurs-gtk-shell-git
 wireplumber
 libgtop
 bluez
@@ -85,12 +86,16 @@ To install the dependencies on Arch, you can use the following commands:
 ##### AUR:
 
 ```bash
-yay -S --needed grimblast-git gpu-screen-recorder-git hyprpicker matugen-bin python-gpustat hyprsunset-git hypridle-git
+yay -S --needed aylurs-gtk-shell-git grimblast-git gpu-screen-recorder-git hyprpicker matugen-bin python-gpustat hyprsunset-git hypridle-git
 ```
 
 ### Fedora
 
 Add [solopasha/hyprland](https://copr.fedorainfracloud.org/coprs/solopasha/hyprland/) for most hyprland-related dependencies, and hues-sueh/packages for matugen. Both provide the swww package, so prioritise the former repo:
+
+##### AGS
+
+First you must install AGSv2. You can find the instructions [here](https://aylur.github.io/ags/guide/install.html).
 
 ##### COPR
 
@@ -103,7 +108,7 @@ sudo dnf config-manager --save --setopt=copr:copr.fedorainfracloud.org:heus-sueh
 ##### DNF:
 
 ```sh
-sudo dnf install wireplumber upower libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth aylurs-gtk-shell power-profiles-daemon gvfs nodejs
+sudo dnf install wireplumber upower libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth power-profiles-daemon gvfs nodejs
 ```
 
 ##### npm:
