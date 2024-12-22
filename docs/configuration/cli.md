@@ -66,7 +66,7 @@ You can also change themes via the command line. This is done via the `hyprpanel
 If you wanted to change your theme to the Nord theme via the command line, you would do so with the following command:
 
 ```bash
-hyprpanel useTheme "/usr/local/share/hyprpanel/themes/nord.json"
+hyprpanel useTheme "/usr/share/hyprpanel/themes/nord.json"
 ```
 
 You can pass in any file path as long as it represents a Hyprpanel theme.

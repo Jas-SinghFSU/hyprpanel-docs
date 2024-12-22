@@ -130,7 +130,7 @@ hyprpanel migrateConfig
 
 ### Scripts
 
-Pre-packaged scripts for hyprpanel are now installed in `/usr/local/share/hyprpanel/scripts`.
+Pre-packaged scripts for hyprpanel are now installed in `/usr/share/hyprpanel/scripts`.
 
 You may have to go through your settings dialog and reset the location of these scripts by clicking the reset icon on the right side of the input field.
 
