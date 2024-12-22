@@ -10,7 +10,7 @@ In order to run this command, HyprPanel must be running.
 
 ## Toggling Menus
 
-Dropdown menus in Hyprpanel can be toggled via CLI commands using the `hyprpanel toggle` followed by the dropdown menu name.
+Dropdown menus in Hyprpanel can be toggled via CLI commands using the `hyprpanel toggleWindow` (or `hyprpanel t`) followed by the dropdown menu name.
 
 Here are the names of the menus:
 
@@ -42,9 +42,9 @@ If you wanted to bind the **settings dialog** or the **audio menu** to a key-bin
 
 ```bash
 # To open the settings dialog
-hyprpanel toggle settings-dialog
+hyprpanel toggleWindow settings-dialog
 # To open the audio menu
-hyprpanel toggle audiomenu
+hyprpanel t audiomenu
 ```
 
 ## Toggling/Hiding the Bars
@@ -54,7 +54,7 @@ Similarly to toggling menus, toggling the bar works the same way. In order to to
 For example, if you want to toggle the bar on your first monitor, you would do so with the following command:
 
 ```bash
-hyprpanel toggle bar-0
+hyprpanel toggleWindow bar-0
 ```
 
 Where `0` is the `ID` of your first monitor. Every subsequent monitor will have an ID that increments by 1. If you have 3 monitors, your ID will be: 0, 1, 2.

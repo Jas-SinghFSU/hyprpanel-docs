@@ -9,5 +9,5 @@ You can access the settings dialog by clicking on the **Arch Icon** (default) to
 Additionally, you can toggle the settings dialog by typing the following command in the terminal:
 
 ```bash
-hyprpanel toggle settings-dialog
+hyprpanel toggleWindow settings-dialog
 ```
