@@ -207,17 +207,17 @@ Once you've set up the overlay, you can reference HyprPanel with `pkgs.hyprpanel
 
 #### Home Manager module
 
-If you want to configure HyprPanel with the Home Manager module instead, read from this section.
+If you want to configure HyprPanel with the Home Manager module instead, start from this section.
 
-First, as with the overlay method, add HyprPanel to your flake.
+First, likewise with the overlay method, add HyprPanel to your flake.
 ```nix
 # flake.nix
 {
   inputs = {
     hyprpanel.url = "github:jas-singhfsu/hyprpanel";
-    # Good practice to ensure packages in HyprPanel
-    # are the same version as your system packages
-    # like when running `swww` from a keybind.
+    # If you're worried about mismatched versions
+    # when using, e.g., `swww` from your own script,
+    # you can also do the following.
     hyprpanel.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -245,8 +245,8 @@ Below is an example of some of the options that are available.
     # Default: false
     systemd.enable = true;
 
-    # Add '/nix/store/.../hyprpanel' to the
-    # 'exec-once' in your Hyprland config.
+    # Add '/nix/store/.../hyprpanel' to your
+    # Hyprland config 'exec-once'.
     # Default: false
     hyprland.enable = true;
 
@@ -272,8 +272,10 @@ Below is an example of some of the options that are available.
       };
     };
 
-    # Configure and theme *most* of the options from the GUI.
-    # See './nix/module.nix:103'.
+    # Configure and theme almost all options from the GUI.
+    # Options that require '{}' or '[]' are not yet implemented,
+    # except for the layout above.
+    # See 'https://hyprpanel.com/configuration/settings.html'.
     # Default: <same as gui>
     settings = {
       bar.launcher.autoDetectIcon = true;
@@ -302,19 +304,16 @@ Below is an example of some of the options that are available.
 ```
 :warning: **Caveat**: Currently, updating the configuration through the GUI will
 overwrite the `config.json` file by deleting it and creating a new one in its
-place. This causes an error with Home Manager as the config must be a symlink to
-the current generation for Home Manager to properly update it. A shorthand fix
-is to delete `config.json` if it is NOT a symlink which can be handled for you
-with the module by setting the `overwrite.enable` option. An obvious caveat to
-this is that you can no longer save the configurations set from the GUI. The
-recommended workflow is to keep track of the differences and apply it later
-in the module.
-
-TL;DR - You can use the GUI but changes will be overwritten after activating
-a new Home Manager build. Keep track of what you like and update the module.
-See `./nix/module.nix` for all available options. One way to do this is to
-make a copy of `~/.config/hyprpanel/config.json` and do a `vimdiff` with the
-copy and the newly overwritten `config.json`.
+place. This is obviously problematic for Home Manager which can only back up
+files once to symlink the next generation config. Hence, the `overwrite.enable`
+option was implemented to automatically delete the file before generating a
+new one. A big caveat to this is that configurations are no longer persistent,
+which is expected of Home Manager, but at least you're able to see live changes
+from the GUI. Just make sure to remember what you changed and try to find the
+corresponding option in the module's settings. One nice tip is to copy
+`config.json` and do a `vimdiff` to see exactly what the option path is.
+The JSON key will be the exact same as the setting attribute, just without
+the double quotes.
 
 
 ### Installing HyprPanel
