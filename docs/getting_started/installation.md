@@ -255,9 +255,16 @@ Below is an example of some of the options that are available.
     # Default: false
     overwrite.enable = true;
 
-    # Import a specific theme from './themes/*.json'.
+    # Import a theme from './themes/*.json'.
     # Default: ""
     theme = "gruvbox_split";
+
+    # Override the final config with an arbitrary set.
+    # Useful for overriding colors in your selected theme.
+    # Default: {}
+    override = {
+      theme.bar.menus.text = "#123ABC";
+    };
 
     # Configure bar layouts for monitors.
     # See 'https://hyprpanel.com/configuration/panel.html'.
