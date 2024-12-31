@@ -140,7 +140,7 @@ The built in GTK Calendar is quite awful in many regards and has extremely limit
 
 ## How can I apply custom css?
 
-You can simply create an alias  like `alias ags_style_edit="code .config/ags/scss"`. Then you can open a terminal and use the alias as `ags_style_edit` and make changes to the styles files under scss folder. Replace `code` with your preferred editor.
+You can simply create an alias like `alias ags_style_edit="code .config/ags/scss"`. Then you can open a terminal and use the alias as `ags_style_edit` and make changes to the styles files under scss folder. Replace `code` with your preferred editor.
 
 ## Can I use keybinds to perform certain actions in the panel?
 
@@ -155,6 +155,7 @@ HyprPanel has Notifications, OSDs and if configured, the Bar as an overlay which
 In order to fix this, you can enable the `Tearing Compatible` options under `Configuration > General` in the settings dialog. This will demote all of the overlays to one layer down which satisfies Hyprland's requirements for Tearing to be enabled.
 
 ## Error: Requiring GTop, version none: Typelib file for namespace 'GTop'
+
 In order to fix this, an external library called Libgtop needs to be installed.You can run `sudo pacman -S libgtop` on arch based distros and restart AGS.
 
 ## Why does my panel freez/crash when connecting to a network/wifi in the Network module/menu?
@@ -162,6 +163,16 @@ In order to fix this, an external library called Libgtop needs to be installed.Y
 The current implementation of the network module relies on `nmcli` and it's not very intuitive. The implementation also needs to be updated.
 
 Worry not, this is on the agenda and once Hyprpanel moves to AGS2/Astal, the network module will get a complete rework. Hang tight, I feel your pain.
+
+## Why are my notification buttons/actions not taking me to the right workspace?
+
+In order for notifications to take you to the right workspace, you must have the following option enabled in your Hyprland configuration:
+
+```
+misc {
+    focus_on_activate = true
+}
+```
 
 ## I need help with something else. Where can I go?
 
