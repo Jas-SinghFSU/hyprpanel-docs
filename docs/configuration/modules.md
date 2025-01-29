@@ -57,6 +57,7 @@ submap
 hyprsunset
 hypridle
 power
+cava
 ```
 
 ### Spawning Drop-Down Menus

@@ -107,6 +107,7 @@ The numbers `0`, `1`, and `2` represent the monitor index. The `left`, `middle`,
 "hyprsunset"
 "hypridle"
 "power"
+"cava"
 ```
 
 #### Hiding the Bar on specific monitors
