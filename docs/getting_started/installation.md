@@ -60,9 +60,6 @@ hyprpicker
 ## To enable hyprland's very own blue light filter
 hyprsunset
 
-## To enable hyprland's very own idle inhibitor
-hypridle
-
 ## To click resource/stat bars in the dashboard and open btop
 btop
 
@@ -77,16 +74,16 @@ swww
 
 To install the dependencies on Arch, you can use the following commands:
 
-##### pacman:
+##### pacman
 
 ```bash
  sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs
 ```
 
-##### AUR:
+##### AUR
 
 ```bash
-yay -S --needed aylurs-gtk-shell-git grimblast-git gpu-screen-recorder-git hyprpicker matugen-bin python-gpustat hyprsunset-git hypridle-git
+yay -S --needed aylurs-gtk-shell-git grimblast-git gpu-screen-recorder-git hyprpicker matugen-bin python-gpustat hyprsunset-git
 ```
 
 ### Fedora
@@ -105,19 +102,19 @@ sudo dnf copr enable heus-sueh/packages
 sudo dnf config-manager --save --setopt=copr:copr.fedorainfracloud.org:heus-sueh:packages.priority=200
 ```
 
-##### DNF:
+##### DNF
 
 ```sh
 sudo dnf install wireplumber upower libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth power-profiles-daemon gvfs nodejs
 ```
 
-##### npm:
+##### npm
 
 ```sh
 npm install -g sass
 ```
 
-##### flatpak:
+##### flatpak
 
 ```sh
 flatpak install flathub --system com.dec05eba.gpu_screen_recorder
@@ -125,7 +122,7 @@ flatpak install flathub --system com.dec05eba.gpu_screen_recorder
 
 #### Optional Dependencies
 
-##### pip:
+##### pip
 
 ```sh
 sudo dnf install python python3-pip; pip install gpustat pywal
@@ -210,6 +207,7 @@ Once you've set up the overlay, you can reference HyprPanel with `pkgs.hyprpanel
 If you want to configure HyprPanel with the Home Manager module instead, start from this section.
 
 First, likewise with the overlay method, add HyprPanel to your flake.
+
 ```nix
 # flake.nix
 {
@@ -227,12 +225,13 @@ First, likewise with the overlay method, add HyprPanel to your flake.
 
 Next, import the Home Manager module and configure it as you wish.
 Below is an example of some of the options that are available.
+
 ```nix
 # *.nix
 { inputs, ... }:
 {
   imports = [ inputs.hyprpanel.homeManagerModules.hyprpanel ];
-  
+
   programs.hyprpanel = {
 
     # Enable the module.
@@ -309,6 +308,7 @@ Below is an example of some of the options that are available.
   };
 }
 ```
+
 :warning: **Caveat**: Currently, updating the configuration through the GUI will
 overwrite the `config.json` file by deleting it and creating a new one in its
 place. This is obviously problematic for Home Manager which can only back up
@@ -321,7 +321,6 @@ corresponding option in the module's settings. One nice tip is to copy
 `config.json` and do a `vimdiff` to see exactly what the option path is.
 The JSON key will be the exact same as the setting attribute, just without
 the double quotes.
-
 
 ### Installing HyprPanel
 
