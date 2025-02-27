@@ -45,6 +45,7 @@ Typically, mouse actions are configured by assigning a specific Bash command to 
 Additionally, they can spawn any drop-down menu by having the `menu:menu_name` command assigned to them in any of the mouse actions.
 
 ```Text
+microphone
 ram
 cpu
 cputemp
