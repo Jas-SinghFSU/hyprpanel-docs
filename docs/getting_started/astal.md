@@ -55,7 +55,7 @@ power-profiles-daemon
 grimblast
 
 ## To record screen through the dashboard record shortcut
-gpu-screen-recorder
+wf-recorder
 
 ## To enable the eyedropper color picker with the default snapshot shortcut in the dashboard
 hyprpicker
@@ -78,13 +78,13 @@ swww
 Pacman:
 
 ```bash
- sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs
+ sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs wf-recorder
 ```
 
 AUR:
 
 ```bash
-yay -S --needed grimblast-git gpu-screen-recorder-git hyprpicker matugen-bin python-gpustat hyprsunset-git
+yay -S --needed grimblast-git hyprpicker matugen-bin python-gpustat hyprsunset-git
 ```
 
 ### Installing
