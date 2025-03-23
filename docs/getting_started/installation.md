@@ -128,6 +128,42 @@ flatpak install flathub --system com.dec05eba.gpu_screen_recorder
 sudo dnf install python python3-pip; pip install gpustat pywal
 ```
 
+### Installing HyprPanel
+
+To install HyprPanel, you can run the following commands:
+
+```bash
+git clone https://github.com/Jas-SinghFSU/HyprPanel.git
+cd HyprPanel
+meson setup build
+meson compile -C build
+meson install -C build
+```
+
+### Installing NerdFonts
+
+HyprPanel uses [Nerdfonts](https://www.nerdfonts.com/) to display icons. You can install them using the following command from within the HyprPanel's `scripts` directory:
+
+```sh
+# Installs the JetBrainsMono NerdFonts used for icons
+./scripts/install_fonts.sh
+```
+
+If you install the fonts after installing HyprPanel, you will need to restart HyprPanel for the changes to take effect.
+
+## Running HyprPanel
+
+Once you have installed HyprPanel, you can run it by running the following command:
+
+```bash
+hyprpanel
+
+# Or add it to your startup via
+exec-once = hyprpanel
+```
+
+## NixOS
+
 ### NixOS & Home Manager
 
 ::: warning
@@ -321,42 +357,6 @@ corresponding option in the module's settings. One nice tip is to copy
 `config.json` and do a `vimdiff` to see exactly what the option path is.
 The JSON key will be the exact same as the setting attribute, just without
 the double quotes.
-
-### Installing HyprPanel
-
-To install HyprPanel, you can run the following commands:
-
-```bash
-git clone https://github.com/Jas-SinghFSU/HyprPanel.git
-cd HyprPanel
-meson setup build
-meson compile -C build
-meson install -C build
-```
-
-### Installing NerdFonts
-
-HyprPanel uses [Nerdfonts](https://www.nerdfonts.com/) to display icons. You can install them using the following command from within the HyprPanel's `scripts` directory:
-
-```sh
-# Installs the JetBrainsMono NerdFonts used for icons
-./scripts/install_fonts.sh
-```
-
-If you install the fonts after installing HyprPanel, you will need to restart HyprPanel for the changes to take effect.
-
-## Running HyprPanel
-
-Once you have installed HyprPanel, you can run it by running the following command:
-
-```bash
-hyprpanel
-
-# Or add it to your startup via
-exec-once = hyprpanel
-```
-
-#### NixOS
 
 On Nix you can start Hyprpanel with the following command:
 
