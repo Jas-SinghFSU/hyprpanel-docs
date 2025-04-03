@@ -16,7 +16,7 @@ hyprpanel toggleWindow settings-dialog
 
 If you are using the Nix Home Manager module, refer to the attributes below for all the available options under `settings`. Other options are shown [here](https://hyprpanel.com/getting_started/installation.html#home-manager-module). On the right-hand side are the types (e.g., `mkStrOption` is a string) plus the default value for that option.
 
-:warning: A current limitation to the module is that newline characters are not escaped. Make sure to do a double backslash instead. E.g., `\n \t` ❎, `\\n \\t` ☑️. Also, remember that local scripts in HyprPanel are **not** magically available to you They are relative to the Nix file! See `menus.dashboard.shortcuts.right.shortcut3.command`.
+:warning: A current limitation to the module is that newline characters are not escaped. Make sure to do a double backslash instead. E.g., `\n \t` ❎, `\\n \\t` ☑️. Also, remember that local scripts in HyprPanel are **not** magically available to you; they are relative to the Nix file! See `menus.dashboard.shortcuts.right.shortcut3.command`.
 
 ```nix
 layout = mkOption {
