@@ -477,7 +477,7 @@ Each entry in the directories section contains the following configurable option
 - The Label/Name of the directory
 - The command to run when the label is clicked
 
-## Custom Modules
+## Basic Modules
 
 ### CPU Temperature
 
@@ -501,7 +501,7 @@ k10temp: Tccd1 /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp3_input
 
 In this case, `k10temp: Tctl /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input` is the sensor that want to use.
 
-So we can simply copy the file path and supply that to the `CPU Temperature Sensor` field in the settings at `Configuration > Custom Modules > CPU Temperature Sensor`. In this case we would input the following value into the text box:
+So we can simply copy the file path and supply that to the `CPU Temperature Sensor` field in the settings at `Configuration > Basic Modules > CPU Temperature Sensor`. In this case we would input the following value into the text box:
 
 ```sh
 /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input

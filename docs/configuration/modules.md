@@ -8,11 +8,11 @@ To assign a module to a section of the bar, follow the instructions in the [Layo
 
 ## Available Modules
 
-There are two types of modules: **Standard** and **Custom**.
+There are two types of modules: **Standard** and **Basic**.
 
-These modules can be configured in the **Custom Modules** section of the **Configuration** pane in the **settings dialog**.
+These modules can be configured in the **Basic Modules** section of the **Configuration** pane in the **settings dialog**.
 
-Modules can also be themed in the **Custom Modules** section of the **Theming** pane in the **settings dialog**.
+Modules can also be themed in the **Basic Modules** section of the **Theming** pane in the **settings dialog**.
 
 [![Modules](/configuration/modules.png)](/configuration/modules.png)
 
@@ -34,11 +34,11 @@ clock
 systray
 ```
 
-### Custom Modules
+### Basic Modules
 
-**Custom Modules** are lightweight modules that have no drop-down menu associated with them. Usually, these modules provide some type of information, either about your system or general information.
+**Basic Modules** are lightweight modules that have no drop-down menu associated with them. Usually, these modules provide some type of information, either about your system or general information.
 
-Almost all of the custom modules can have their mouse actions configured in the settings dialog. This includes `left-click`, `right-click`, `middle-click`, `scroll-up`, and `scroll-down`.
+Almost all of the basic modules can have their mouse actions configured in the settings dialog. This includes `left-click`, `right-click`, `middle-click`, `scroll-up`, and `scroll-down`.
 
 Typically, mouse actions are configured by assigning a specific Bash command to them. This assignment is done in the text box associated with the action, located within the settings dialog.
 
