@@ -136,7 +136,7 @@ If the above is the output of your shell command, then the icon displayed will b
         "label": "{percentage}%",
         "tooltip": "Current Volume: {percentage}%",
         "truncationSize": -1,
-        "execute": "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/[^0-9]*//g' | xargs -I{} echo '{\"percentage\": {}}'",
+        "execute": "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}' | sed 's/[^0-9]*//g' | xargs -I{} echo '{\\\"percentage\\\": {}}'",
         "executeOnAction": "",
         "interval": 1000,
         "hideOnEmpty": true,
