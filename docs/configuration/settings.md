@@ -16,9 +16,35 @@ hyprpanel toggleWindow settings-dialog
 
 If you are using the Nix Home Manager module, refer to the attributes below for all the available options under `settings`. Other options are shown [here](https://hyprpanel.com/getting_started/installation.html#home-manager-module). On the right-hand side are the types (e.g., `mkStrOption` is a string) plus the default value for that option.
 
-:warning: A current limitation to the module is that newline characters are not escaped. Make sure to do a double backslash instead. E.g., `\n \t` ❎, `\\n \\t` ☑️. Also, remember that local scripts in HyprPanel are **not** magically available to you They are relative to the Nix file! See `menus.dashboard.shortcuts.right.shortcut3.command`.
+:warning: A current limitation to the module is that newline characters are not escaped. Make sure to do a double backslash instead. E.g., `\n \t` ❎, `\\n \\t` ☑️. Also, remember that local scripts in HyprPanel are **not** magically available to you; they are relative to the Nix file! See `menus.dashboard.shortcuts.right.shortcut3.command`.
 
 ```nix
+layout = mkOption {
+        type = jsonFormat.type;
+        default = null;
+        example = ''
+          {
+            "bar.layouts" = {
+              "0" = {
+                left = [ "dashboard" "workspaces" "windowtitle" ];
+                middle = [ "media" ];
+                right = [ "volume" "network" "bluetooth" "battery" "systray" "clock" "notifications" ];
+              };
+              "1" = {
+                left = [ "dashboard" "workspaces" "windowtitle" ];
+                middle = [ "media" ];
+                right = [ "volume" "clock" "notifications" ];
+              };
+              "2" = {
+                left = [ "dashboard" "workspaces" "windowtitle" ];
+                middle = [ "media" ];
+                right = [ "volume" "clock" "notifications" ];
+              };
+            };
+          };
+        '';
+        description = "https://hyprpanel.com/configuration/panel.html";
+      };
 bar.autoHide = mkStrOption "never";
 bar.battery.hideLabelWhenFull = mkBoolOption false;
 bar.battery.label = mkBoolOption true;
@@ -39,6 +65,34 @@ bar.clock.scrollDown = mkStrOption "";
 bar.clock.scrollUp = mkStrOption "";
 bar.clock.showIcon = mkBoolOption true;
 bar.clock.showTime = mkBoolOption true;
+bar.customModules.cava.showIcon = mkBoolOption true;
+bar.customModules.cava.icon = mkStrOption "";
+bar.customModules.cava.spaceCharacter = mkStrOption " ";
+bar.customModules.cava.barCharacters = mkStrListOption [
+        "▁"
+        "▂"
+        "▃"
+        "▄"
+        "▅"
+        "▆"
+        "▇"
+        "█"
+    ];
+bar.customModules.cava.showActiveOnly = mkBoolOption false;
+bar.customModules.cava.bars = mkIntOption 10;
+bar.customModules.cava.channels = mkIntOption 2;
+bar.customModules.cava.framerate = mkIntOption 60;
+bar.customModules.cava.samplerate = mkIntOption 44100;
+bar.customModules.cava.autoSensitivity = mkBoolOption true;
+bar.customModules.cava.lowCutoff = mkIntOption 50;
+bar.customModules.cava.highCutoff = mkIntOption 10000;
+bar.customModules.cava.noiseReduction = mkFloatOption 0.77;
+bar.customModules.cava.stereo = mkBoolOption false;
+bar.customModules.cava.leftClick = mkStrOption "";
+bar.customModules.cava.rightClick = mkStrOption "";
+bar.customModules.cava.middleClick = mkStrOption "";
+bar.customModules.cava.scrollUp = mkStrOption "";
+bar.customModules.cava.scrollDown = mkStrOption "";
 bar.customModules.cpu.icon = mkStrOption "";
 bar.customModules.cpu.label = mkBoolOption true;
 bar.customModules.cpu.leftClick = mkStrOption "";
@@ -109,14 +163,14 @@ bar.customModules.power.rightClick = mkStrOption "";
 bar.customModules.power.scrollDown = mkStrOption "";
 bar.customModules.power.scrollUp = mkStrOption "";
 bar.customModules.power.showLabel = mkBoolOption true;
-bar.customModules.microphone.label = mkBoolOption true,
-bar.customModules.microphone.mutedIcon = mkStrOption "󰍭",
-bar.customModules.microphone.unmutedIcon = mkStrOption "󰍬",
-bar.customModules.microphone.leftClick = mkStrOption "menu:audio",
-bar.customModules.microphone.rightClick = mkStrOption "",
-bar.customModules.microphone.middleClick = mkStrOption "",
-bar.customModules.microphone.scrollUp = mkStrOption "",
-bar.customModules.microphone.scrollDown = mkStrOption "",
+bar.customModules.microphone.label = mkBoolOption true;
+bar.customModules.microphone.mutedIcon = mkStrOption "󰍭";
+bar.customModules.microphone.unmutedIcon = mkStrOption "󰍬";
+bar.customModules.microphone.leftClick = mkStrOption "menu:audio";
+bar.customModules.microphone.rightClick = mkStrOption "";
+bar.customModules.microphone.middleClick = mkStrOption "";
+bar.customModules.microphone.scrollUp = mkStrOption "";
+bar.customModules.microphone.scrollDown = mkStrOption "";
 bar.customModules.ram.icon = mkStrOption "";
 bar.customModules.ram.label = mkBoolOption true;
 bar.customModules.ram.labelType = mkStrOption "percentage";
@@ -194,11 +248,12 @@ bar.notifications.scrollDown = mkStrOption "";
 bar.notifications.scrollUp = mkStrOption "";
 bar.notifications.show_total = mkBoolOption false;
 bar.scrollSpeed = mkIntOption 5;
+bar.systray.ignore = mkStrListOption [];
 bar.volume.label = mkBoolOption true;
 bar.volume.middleClick = mkStrOption "";
 bar.volume.rightClick = mkStrOption "";
-bar.volume.scrollDown = mkStrOption "${package}/bin/hyprpanel vol -5";
-bar.volume.scrollUp = mkStrOption "${package}/bin/hyprpanel vol +5";
+bar.volume.scrollDown = mkStrOption "${package}/bin/hyprpanel 'vol -5'";
+bar.volume.scrollUp = mkStrOption "${package}/bin/hyprpanel 'vol +5'";
 bar.windowtitle.class_name = mkBoolOption true;
 bar.windowtitle.custom_title = mkBoolOption true;
 bar.windowtitle.icon = mkBoolOption true;
@@ -213,7 +268,6 @@ bar.windowtitle.truncation_size = mkIntOption 50;
 bar.workspaces.applicationIconEmptyWorkspace = mkStrOption "";
 bar.workspaces.applicationIconFallback = mkStrOption "󰣆";
 bar.workspaces.applicationIconOncePerWorkspace = mkBoolOption true;
-bar.workspaces.hideUnoccupied = mkBoolOption true;
 bar.workspaces.icons.active = mkStrOption "";
 bar.workspaces.icons.available = mkStrOption "";
 bar.workspaces.icons.occupied = mkStrOption "";
@@ -227,12 +281,25 @@ bar.workspaces.showApplicationIcons = mkBoolOption false;
 bar.workspaces.showWsIcons = mkBoolOption false;
 bar.workspaces.show_icons = mkBoolOption false;
 bar.workspaces.show_numbered = mkBoolOption false;
-bar.workspaces.spacing = mkIntOption 1;
+bar.workspaces.spacing = mkFloatOption 1.0;
 bar.workspaces.workspaceMask = mkBoolOption false;
 bar.workspaces.workspaces = mkIntOption 5;
+bar.workspaces.workspaceIconMap = mkOption {
+    type = jsonFormat.type;
+    default = null;
+    example = ''
+                "1": "<U+EEFE>",
+                "2": "<U+F269>",
+                "3": "<U+EAC4>",
+                "4": "<U+EC1B>",
+                "5": "<U+F02B4>",
+                "6": "<U+F1FF> ",
+                "7": "<U+EB1C>"        
+            '';
+    };
 dummy = mkBoolOption true;
 hyprpanel.restartAgs = mkBoolOption true;
-hyprpanel.restartCommand = mkStrOption "${pkgs.procps}/bin/pkill -u $USER -USR1 hyprpanel; ${package}/bin/hyprpanel";
+hyprpanel.restartCommand = mkStrOption "${package}/bin/hyprpanel q; ${package}/bin/hyprpanel";
 menus.clock.time.hideSeconds = mkBoolOption false;
 menus.clock.time.military = mkBoolOption false;
 menus.clock.weather.enabled = mkBoolOption true;
@@ -242,15 +309,20 @@ menus.clock.weather.location = mkStrOption "Los Angeles";
 menus.clock.weather.unit = mkStrOption "imperial";
 menus.dashboard.controls.enabled = mkBoolOption true;
 menus.dashboard.directories.enabled = mkBoolOption true;
-menus.dashboard.directories.left.directory1.command = mkStrOption "bash -c \"xdg-open $HOME/Downloads/\"";
+menus.dashboard.directories.left.directory1.command =
+    mkStrOption "bash -c \"xdg-open $HOME/Downloads/\"";
 menus.dashboard.directories.left.directory1.label = mkStrOption "󰉍 Downloads";
-menus.dashboard.directories.left.directory2.command = mkStrOption "bash -c \"xdg-open $HOME/Videos/\"";
+menus.dashboard.directories.left.directory2.command =
+    mkStrOption "bash -c \"xdg-open $HOME/Videos/\"";
 menus.dashboard.directories.left.directory2.label = mkStrOption "󰉏 Videos";
-menus.dashboard.directories.left.directory3.command = mkStrOption "bash -c \"xdg-open $HOME/Projects/\"";
+menus.dashboard.directories.left.directory3.command =
+    mkStrOption "bash -c \"xdg-open $HOME/Projects/\"";
 menus.dashboard.directories.left.directory3.label = mkStrOption "󰚝 Projects";
-menus.dashboard.directories.right.directory1.command = mkStrOption "bash -c \"xdg-open $HOME/Documents/\"";
+menus.dashboard.directories.right.directory1.command =
+    mkStrOption "bash -c \"xdg-open $HOME/Documents/\"";
 menus.dashboard.directories.right.directory1.label = mkStrOption "󱧶 Documents";
-menus.dashboard.directories.right.directory2.command = mkStrOption "bash -c \"xdg-open $HOME/Pictures/\"";
+menus.dashboard.directories.right.directory2.command =
+    mkStrOption "bash -c \"xdg-open $HOME/Pictures/\"";
 menus.dashboard.directories.right.directory2.label = mkStrOption "󰉏 Pictures";
 menus.dashboard.directories.right.directory3.command = mkStrOption "bash -c \"xdg-open $HOME/\"";
 menus.dashboard.directories.right.directory3.label = mkStrOption "󱂵 Home";
@@ -261,6 +333,7 @@ menus.dashboard.powermenu.logout = mkStrOption "hyprctl dispatch exit";
 menus.dashboard.powermenu.reboot = mkStrOption "systemctl reboot";
 menus.dashboard.powermenu.shutdown = mkStrOption "systemctl poweroff";
 menus.dashboard.powermenu.sleep = mkStrOption "systemctl suspend";
+menus.dashboard.recording.path = mkStrOption "$HOME/Videos/Screencasts";
 menus.dashboard.shortcuts.enabled = mkBoolOption true;
 menus.dashboard.shortcuts.left.shortcut1.command = mkStrOption "microsoft-edge-stable";
 menus.dashboard.shortcuts.left.shortcut1.icon = mkStrOption "󰇩";
@@ -277,7 +350,8 @@ menus.dashboard.shortcuts.left.shortcut4.tooltip = mkStrOption "Search Apps";
 menus.dashboard.shortcuts.right.shortcut1.command = mkStrOption "sleep 0.5 && hyprpicker -a";
 menus.dashboard.shortcuts.right.shortcut1.icon = mkStrOption "";
 menus.dashboard.shortcuts.right.shortcut1.tooltip = mkStrOption "Color Picker";
-menus.dashboard.shortcuts.right.shortcut3.command = mkStrOption "bash -c \"${../scripts/snapshot.sh}\"";
+menus.dashboard.shortcuts.right.shortcut3.command =
+    mkStrOption "bash -c \"${../scripts/snapshot.sh}\"";
 menus.dashboard.shortcuts.right.shortcut3.icon = mkStrOption "󰄀";
 menus.dashboard.shortcuts.right.shortcut3.tooltip = mkStrOption "Screenshot";
 menus.dashboard.stats.enable_gpu = mkBoolOption false;
@@ -308,6 +382,7 @@ notifications.displayedTotal = mkIntOption 10;
 notifications.monitor = mkIntOption 0;
 notifications.position = mkStrOption "top right";
 notifications.showActionsOnHover = mkBoolOption false;
+notifications.ignore = mkStrListOption [ ];
 notifications.timeout = mkIntOption 7000;
 scalingPriority = mkStrOption "gdk";
 tear = mkBoolOption false;
@@ -341,9 +416,9 @@ theme.bar.buttons.modules.hyprsunset.spacing = mkStrOption "0.45em";
 theme.bar.buttons.modules.kbLayout.enableBorder = mkBoolOption false;
 theme.bar.buttons.modules.kbLayout.spacing = mkStrOption "0.45em";
 theme.bar.buttons.modules.netstat.enableBorder = mkBoolOption false;
+theme.bar.buttons.modules.microphone.enableBorder = mkBoolOption false;
+theme.bar.buttons.modules.microphone.spacing = mkStrOption "0.45em";
 theme.bar.buttons.modules.netstat.spacing = mkStrOption "0.45em";
-theme.bar.buttons.modules.microphone.enableBorder = mkBoolOption false,
-theme.bar.buttons.modules.microphone.spacing = mkStrOption "0.45em",
 theme.bar.buttons.modules.power.enableBorder = mkBoolOption false;
 theme.bar.buttons.modules.power.spacing = mkStrOption "0.45em";
 theme.bar.buttons.modules.ram.enableBorder = mkBoolOption false;
@@ -377,6 +452,7 @@ theme.bar.buttons.workspaces.enableBorder = mkBoolOption false;
 theme.bar.buttons.workspaces.fontSize = mkStrOption "1.2em";
 theme.bar.buttons.workspaces.numbered_active_highlight_border = mkStrOption "0.2em";
 theme.bar.buttons.workspaces.numbered_active_highlight_padding = mkStrOption "0.2em";
+theme.bar.buttons.workspaces.numbered_inactive_padding = mkStrOption "0.2em";
 theme.bar.buttons.workspaces.pill.active_width = mkStrOption "12em";
 theme.bar.buttons.workspaces.pill.height = mkStrOption "4em";
 theme.bar.buttons.workspaces.pill.radius = mkStrOption "1.9rem * 0.6";
@@ -385,6 +461,7 @@ theme.bar.buttons.workspaces.smartHighlight = mkBoolOption true;
 theme.bar.buttons.workspaces.spacing = mkStrOption "0.5em";
 theme.bar.buttons.y_margins = mkStrOption "0.4em";
 theme.bar.dropdownGap = mkStrOption "2.9em";
+theme.bar.enableShadow = mkBoolOption false;
 theme.bar.floating = mkBoolOption false;
 theme.bar.label_spacing = mkStrOption "0.5em";
 theme.bar.layer = mkStrOption "top";
@@ -396,6 +473,7 @@ theme.bar.menus.border.radius = mkStrOption "0.7em";
 theme.bar.menus.border.size = mkStrOption "0.13em";
 theme.bar.menus.buttons.radius = mkStrOption "0.4em";
 theme.bar.menus.card_radius = mkStrOption "0.4em";
+theme.bar.menus.enableShadow = mkBoolOption false;
 theme.bar.menus.menu.battery.scaling = mkIntOption 100;
 theme.bar.menus.menu.bluetooth.scaling = mkIntOption 100;
 theme.bar.menus.menu.clock.scaling = mkIntOption 100;
@@ -421,6 +499,8 @@ theme.bar.menus.popover.scaling = mkIntOption 100;
 theme.bar.menus.progressbar.radius = mkStrOption "0.3rem";
 theme.bar.menus.scroller.radius = mkStrOption "0.7em";
 theme.bar.menus.scroller.width = mkStrOption "0.25em";
+theme.bar.menus.shadow = mkStrOption "0px 0px 3px 1px #16161e";
+theme.bar.menus.shadowMargins = mkStrOption "5px 5px";
 theme.bar.menus.slider.progress_radius = mkStrOption "0.3rem";
 theme.bar.menus.slider.slider_radius = mkStrOption "0.3rem";
 theme.bar.menus.switch.radius = mkStrOption "0.2em";
@@ -429,6 +509,8 @@ theme.bar.menus.tooltip.radius = mkStrOption "0.3em";
 theme.bar.opacity = mkIntOption 100;
 theme.bar.outer_spacing = mkStrOption "1.6em";
 theme.bar.scaling = mkIntOption 100;
+theme.bar.shadow = mkStrOption "0px 1px 2px 1px #16161e";
+theme.bar.shadowMargins = mkStrOption "0px 0px 4px 0px";
 theme.bar.transparent = mkBoolOption false;
 theme.font.name = mkStrOption "Ubuntu Nerd Font";
 theme.font.size = mkStrOption "1.2rem";
@@ -438,12 +520,22 @@ theme.matugen_settings.contrast = mkIntOption 0;
 theme.matugen_settings.mode = mkStrOption "dark";
 theme.matugen_settings.scheme_type = mkStrOption "tonal-spot";
 theme.matugen_settings.variation = mkStrOption "standard_1";
+theme.name = mkOption {
+        type = types.str;
+        default = "";
+        example = "catppuccin_mocha";
+        description = "Theme to import (see ../themes/*.json)";
+    };
 theme.notification.border_radius = mkStrOption "0.6em";
+theme.notification.enableShadow = mkBoolOption false;
 theme.notification.opacity = mkIntOption 100;
 theme.notification.scaling = mkIntOption 100;
+theme.notification.shadow = mkStrOption "0px 1px 2px 1px #16161e";
+theme.notification.shadowMargins = mkStrOption "4px 4px";
 theme.osd.active_monitor = mkBoolOption true;
 theme.osd.duration = mkIntOption 2500;
 theme.osd.enable = mkBoolOption true;
+theme.osd.enableShadow = mkBoolOption false;
 theme.osd.location = mkStrOption "right";
 theme.osd.margins = mkStrOption "0px 5px 0px 0px";
 theme.osd.monitor = mkIntOption 0;
@@ -451,7 +543,9 @@ theme.osd.muted_zero = mkBoolOption false;
 theme.osd.opacity = mkIntOption 100;
 theme.osd.orientation = mkStrOption "vertical";
 theme.osd.radius = mkStrOption "0.4em";
+theme.osd.border.size = mkStrOption "0em";
 theme.osd.scaling = mkIntOption 100;
+theme.osd.shadow = mkStrOption "0px 0px 3px 2px #16161e";
 theme.tooltip.scaling = mkIntOption 100;
 wallpaper.enable = mkBoolOption true;
 wallpaper.image = mkStrOption "";
