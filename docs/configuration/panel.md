@@ -84,6 +84,7 @@ Additionally, you can also use a combination of a wild-card to apply the layout 
 The numbers `0`, `1`, and `2` represent the monitor index. The `left`, `middle`, and `right` keys represent the modules that will be displayed on the left, middle, and right side of the panel, respectively. Each section (left, middle, right) is an array of module names that will be displayed in the order they are listed. You can select from the following modules:
 
 ```text
+"separator"
 "battery"
 "dashboard"
 "workspaces"
