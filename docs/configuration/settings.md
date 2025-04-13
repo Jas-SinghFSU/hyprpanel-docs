@@ -297,6 +297,17 @@ bar.workspaces.workspaceIconMap = mkOption {
                 "7": "<U+EB1C>"        
             '';
     };
+bar.workspaces.applicationIconMap = mkOption {
+    type = jsonFormat.type;
+    default = { };
+    example = ''
+    {
+        "class:kitty$":"󰆍",
+        "title:Settings":"",
+        "vivaldi":""
+    }
+    '';
+};
 dummy = mkBoolOption true;
 hyprpanel.restartAgs = mkBoolOption true;
 hyprpanel.restartCommand = mkStrOption "${package}/bin/hyprpanel q; ${package}/bin/hyprpanel";
