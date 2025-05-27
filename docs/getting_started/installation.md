@@ -99,7 +99,7 @@ sudo dnf config-manager --save --setopt=copr:copr.fedorainfracloud.org:heus-sueh
 ##### DNF
 
 ```sh
-sudo dnf install wireplumber upower libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth power-profiles-daemon gvfs nodejs
+sudo dnf install wireplumber upower libgtop2 bluez bluez-tools grimblast hyprpicker btop NetworkManager wl-clipboard swww brightnessctl gnome-bluetooth power-profiles-daemon gvfs nodejs gtksourceview3 libsoup3
 ```
 
 ##### npm
