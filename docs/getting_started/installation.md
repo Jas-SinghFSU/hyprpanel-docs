@@ -23,6 +23,7 @@ dart-sass
 wl-clipboard
 upower
 gvfs
+gtksourceview3
 ```
 
 ::: warning
@@ -72,18 +73,10 @@ swww
 
 ### Arch
 
-To install the dependencies on Arch, you can use the following commands:
-
-##### pacman
+To install the dependencies on Arch, you can use the following command:
 
 ```bash
- sudo pacman -S --needed wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs wf-recorder
-```
-
-##### AUR
-
-```bash
-yay -S --needed aylurs-gtk-shell-git grimblast-git hyprpicker matugen-bin python-gpustat hyprsunset-git
+yay -S --needed aylurs-gtk-shell-git wireplumber libgtop bluez bluez-utils btop networkmanager dart-sass wl-clipboard brightnessctl swww python upower pacman-contrib power-profiles-daemon gvfs gtksourceview3 grimblast-git wf-recorder-git hyprpicker matugen-bin python-gpustat hyprsunset-git
 ```
 
 ### Fedora
