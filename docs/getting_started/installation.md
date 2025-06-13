@@ -228,6 +228,17 @@ Alternatively, if you're using NixOS and/or Home-Manager, you can setup AGS usin
 }
 ```
 
+### You may also need to enable these services to get the associated module working.
+
+```nix
+# *.nix
+{
+  services.upower.enable = true; # Battery and power related modules
+  services.gvfs.enable = true; # For network cover art urls to be cached (spotify for example)
+  hardware.bluetooth.enable = true; 
+}
+```
+
 Once you've set up the overlay, you can reference HyprPanel with `pkgs.hyprpanel` as if it were any other Nix package. This means you can reference it as a NixOS system/user package, a Home-Manager user package, or as a direct reference in your Hyprland configuration (if your configuration is managed by Home-Manager). The first three methods will add it to your `$PATH` (first globally, second two user-only), however the final will not.
 
 **Make sure to** place `pkgs.hyprpanel` in `environment.systemPackages` or `home.packages`.
