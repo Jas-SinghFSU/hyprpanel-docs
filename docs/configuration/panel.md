@@ -298,7 +298,8 @@ The **Custom Systray Icons** field lets you define a JSON map to assign custom i
 {
     "appId_or_regex" : {
         "icon": "󰙯",
-        "color": "#b4befe"
+        "color": "#b4befe",
+        "size": "1.3em"
     }
 }
 ```
