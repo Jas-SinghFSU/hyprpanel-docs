@@ -57,7 +57,7 @@ The **Layouts** section allows you to configure the layout of the panel. If you 
 }
 ```
 
-Additionally, you can also use a combination of a wild-card to apply the layout to all monitors not explicitly defined. For example, if you want to apply the same layout to all monitors EXCEPT monitor 2, you can define the layout as follows:
+Additionally, you can also use a combination of a wild-card to apply the layout to all monitors not explicitly defined. You can mix monitor indices and connector names in the same configuration. For example, if you want to apply the same layout to all monitors EXCEPT monitor 2 and your HDMI display, you can define the layout as follows:
 
 ```json
 {
@@ -77,11 +77,15 @@ Additionally, you can also use a combination of a wild-card to apply the layout 
     "left": ["dashboard", "workspaces", "windowtitle"],
     "middle": ["media"],
     "right": ["volume", "clock", "notifications"]
+  },
+  "HDMI-A-1": {
+    "extends": "*",
+    "middle": []
   }
 }
 ```
 
-The numbers `0`, `1`, and `2` represent the monitor index. The `left`, `middle`, and `right` keys represent the modules that will be displayed on the left, middle, and right side of the panel, respectively. Each section (left, middle, right) is an array of module names that will be displayed in the order they are listed. You can select from the following modules:
+The numbers `0`, `1`, and `2` represent the monitor index. Alternatively, you can use the monitor's connector name (e.g., `"DP-1"`, `"HDMI-A-1"`) as the key. The `left`, `middle`, and `right` keys represent the modules that will be displayed on the left, middle, and right side of the panel, respectively. Each section (left, middle, right) is an array of module names that will be displayed in the order they are listed. You can select from the following modules:
 
 ```text
 "separator"
@@ -111,6 +115,45 @@ The numbers `0`, `1`, and `2` represent the monitor index. The `left`, `middle`,
 "power"
 "cava"
 ```
+
+#### Extending Layouts
+
+You can use the `extends` property to inherit configuration from another layout. This is useful when you want to have a base layout and only override specific sections for certain monitors. The `extends` property should reference another layout key (monitor index, connector name, or wildcard).
+
+When using `extends`, any sections (`left`, `middle`, `right`) that are not defined in the current layout will be inherited from the extended layout. If a section is defined, it will override the entire section from the extended layout.
+
+Example using extends:
+
+```json
+{
+  "*": {
+    "left": ["dashboard", "workspaces", "windowtitle"],
+    "middle": ["media"],
+    "right": [
+      "volume",
+      "network",
+      "bluetooth",
+      "systray",
+      "clock",
+      "notifications"
+    ]
+  },
+  "DP-1": {
+    "extends": "*",
+    "right": ["volume", "clock", "notifications"]
+  },
+  "HDMI-A-1": {
+    "extends": "*",
+    "left": ["workspaces"],
+    "middle": []
+  }
+}
+```
+
+In this example:
+- The wildcard layout (`*`) defines the default configuration
+- The `DP-1` monitor extends the wildcard layout but overrides only the `right` section
+- The `HDMI-A-1` monitor extends the wildcard layout but overrides the `left` and `middle` sections
 
 #### Hiding the Bar on specific monitors
 
