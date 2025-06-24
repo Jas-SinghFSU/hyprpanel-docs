@@ -469,6 +469,12 @@ The Clock Menu displays the time, calendar, and the weather. In the **Clock Menu
   - The weather location
   - The weather unit
   - The weather API key
+    - Instead of plain text, you can also specify a file path to a JSON file that contains the API key in the following format:
+      ```json
+      {
+        "weather_api_key": "your_api_key_goes_here"
+      }
+      ```
   - The weather refresh rate
 
 The Weather API key is required to fetch weather data. You can get a free API key from [WeatherAPI's Website](https://weatherapi.com/)
