@@ -94,6 +94,7 @@ To install HyprPanel, you can run the following commands:
 ```bash
 git clone https://github.com/Jas-SinghFSU/HyprPanel.git
 cd HyprPanel
+npm i
 meson setup build
 meson compile -C build
 meson install -C build

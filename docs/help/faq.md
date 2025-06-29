@@ -51,6 +51,7 @@ git stash
 Then rebuild the panel via:
 
 ```bash
+npm i
 meson setup build
 meson compile -C build
 meson install -C build
